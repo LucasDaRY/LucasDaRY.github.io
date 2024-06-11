@@ -58,6 +58,7 @@ h3 {
 
 .picture {
     width: 100ex;
+    height: 100ex;
     max-width: 50%;
     font-size: 0;
     color: hsl(0, 0%, 10%);
