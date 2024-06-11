@@ -17,6 +17,14 @@ h1, h2, h3, h4, h5, h6, p, li {
     font-family: "IBM Plex Mono", monospace;
 }
 
+h1 {
+    letter-spacing: -0.1em;
+}
+
+h3 {
+    margin-top: 2em;
+}
+
 .lang{
     display: flex;
     flex-direction: column;
@@ -50,9 +58,10 @@ h1, h2, h3, h4, h5, h6, p, li {
 
 .picture {
     width: 100ex;
-    font-size: 40%;
+    max-width: 50%;
+    font-size: 0;
     color: hsl(0, 0%, 10%);
-    line-height: 1.82ex; /* aspect ratio height/width of font */
+    line-height: 1.9ex; /* aspect ratio height/width of font */
 }
 
 li {

@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Design de site inspiré par ________ -->
+    <!-- Design de site inspiré par hyperturing.com -->
     <div class="head">
-        <p class="picture">
+        <p id="picture" class="picture">
 
 
             ▓▓▒▓██▒█▒░░▒▓▓█▓▒▒▓▒▒▒░░▒▒▒▒░░▒░░░░░░░▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒░░░▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒░░▒░░░░░░▒▒▒░░▒▒░▒▒▒░░
@@ -79,12 +79,32 @@
         <h1>
             Lucas Da R Y
         </h1>
-        <p>Je suis en MPI au lycée Gay-Lussac</p>
+        
+        <p>Etudiant en MPI au lycée Gay-Lussac</p>
+        <p>uhe</p>
+
         <h3>Mes centres interet :</h3>
         <ul>
-            <li>truc</li>
-            <li>truc2</li>
+            <li>Mécanique orbitale</li>
+            <li>Lanceurs réutilisables</li>
+            <li>Voitures autonomes</li>
+            <li>Simulations et maths appliqués</li>
+            <li>Systèmes embarqués</li>
+        </ul>
+
+        <h3>Me contacter</h3>
+        <ul>
+            <li><a href="https://x.com/LucasDaRiYv">X</a></li>
+            <li><a href="mailto:lucas@lucas-david-ry.com">mail</a></li>
         </ul>
     </div>
     <script src="/script.js"></script>
+    <script>
+        let picture_font_size = "0"
+        let v_width = window.innerWidth
+        picture_font_size = Math.min( v_width * 0.005, 5 )
+        document.getElementById("picture").style.fontSize = (picture_font_size.toString()+"px");
+        console.log((picture_font_size.toString()+"pt"));
+        console.log(typeof((picture_font_size.toString()+"pt")));
+    </script>
 </body>
