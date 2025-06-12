@@ -25,26 +25,6 @@ h3 {
     margin-top: 2em;
 }
 
-.lang{
-    display: flex;
-    flex-direction: column;
-}
-
-.flag {
-    margin-bottom: 1rem;
-	width: 3rem;
-    aspect-ratio: 1.5;
-}
-
-.flag_fr {
-    background: -webkit-linear-gradient(left, blue 33%, white 33%, white 66%, red 66%);
-	background: linear-gradient(to right, blue 33%, white 33%, white 66%, red 66%);
-}
-
-.flag_us {
-    background : red;
-}
-
 .head {
     display: flex;
     justify-content:space-between;
