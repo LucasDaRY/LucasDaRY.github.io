@@ -1,7 +1,7 @@
 @font-face {
     font-family: D-DIN;
     font-weight: normal;
-    src: url("dependencies/fonts/D-DIN.otf") format("opentype");
+    src: url("assets/fonts/D-DIN.otf") format("opentype");
 }
 
 * {
