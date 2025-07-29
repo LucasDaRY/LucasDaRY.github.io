@@ -21,6 +21,10 @@ body {
     margin-right: auto;
 }
 
+#profile_picture{
+    width: 25vw;
+}
+
 .text {
     margin: auto;
 }
