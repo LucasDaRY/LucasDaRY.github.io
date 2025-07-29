@@ -3,6 +3,11 @@
     font-weight: normal;
     src: url("assets/fonts/D-DIN.otf") format("opentype");
 }
+@font-face {
+    font-family: D-DIN-bold;
+    font-weight: bold;
+    src: url("assets/fonts/D-DIN-Bold.otf") format("opentype");
+}
 
 * {
   padding:0;
@@ -24,8 +29,12 @@ ul li ul {
     padding-left: 20px;
 }
 
-h1, h2, h3, h4, h5, h6, p, li, a {
-    font-family: "IBM Plex Mono", monospace;
+h1, h2, h3 {
+    font-family: D-DIN-bold, "IBM Plex Mono", monospace;
+    margin: 0.5rem 0 0.5rem 0;
+}
+h4, h5, h6, p, li, a{
+    font-family: D-DIN, "IBM Plex Mono", monospace;
 }
 
 h1 {
@@ -36,24 +45,18 @@ h3 {
     margin-top: 2em;
 }
 
-.head {
-    display: flex;
-    justify-content:space-between;
-    margin: 4rem 0 4rem 0;
+code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.9rem;
+}
+
+header {
+    margin: 4rem 0 2rem 0;
 }
 
 .wrapper {
     margin: auto;
     background: #444;
-}
-
-.picture {
-    width: 100ex;
-    height: 100ex;
-    max-width: 50%;
-    font-size: 0;
-    color: hsl(0, 0%, 10%);
-    line-height: 1.9ex; /* aspect ratio height/width of font */
 }
 
 li {
@@ -63,4 +66,103 @@ li {
 li::before {
     content: "-";
     margin: 0.4rem;
+}
+
+#detailsSwitch{
+    text-align: end;
+}
+
+.selectPresType{
+    font-weight: bold;
+    font-size: large;
+    padding: 8px;
+
+    border-radius: 0%;
+    background: none;
+    border: 1px solid black;
+
+    transition-property: background;
+    transition-duration: 0.2s;
+}
+
+.selectPresType:hover, .selectPresType:active{
+    
+    background-color: hsl(120, 20%, 80%);
+    cursor: pointer;
+}
+
+.presentation{
+    display: none;
+    opacity: 0;
+    transition:
+        opacity 1s ease-in-out,
+        display 1s allow-discrete;
+}
+
+.showPres{
+    display: block;
+    opacity: 1;
+}
+
+@starting-style{
+    .showPres{
+        opacity: 0;
+    }
+}
+
+.split{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 24px;
+}
+.split p{
+    flex-direction: column;
+}
+
+@media (max-width: 700px){
+    .split{
+        flex-direction: column;
+    }
+}
+
+.split div{
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    /*background-color: hsl(120, 20%, 90%);*/
+    outline: 1px solid black;
+    outline-offset: -1px;
+    text-align: center;
+    text-wrap: wrap;
+}
+
+.split div p{
+    padding: 0.4rem 0 0.4rem 0;
+}
+
+video, img{
+    width: 100%;
+}
+
+footer{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+footer span{
+    direction: rtl;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+footer span img{
+    width: fit-content;
 }
