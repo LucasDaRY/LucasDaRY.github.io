@@ -1,24 +1,26 @@
 <!DOCTYPE html>
+<!-- Design de site inspiré par hyperturing.com -->
+<html lang="fr">
+
 <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Lucas Da R Y</title>
-    <link rel="stylesheet" type='text/css' media='screen' href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/ico" href="/assets/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-    <!-- Design de site inspiré par hyperturing.com -->
     <header>
-        <img id="profile_picture" src="./assets/img/pp_web.jpg">
+        <img id="profile_picture" src="./assets/img/pp_web.jpg" />
     </header>
-    <div class="text">
-        <h1>
-            Lucas DAVID Rino Yves
-        </h1>
-        
+    <div id="FR">
+        <h1>Lucas DAVID Rino Yves</h1>
+
         <p>Etudiant en Ingénierie Robotique à Polytech Dijon</p>
 
         <h3>Mes dernières occupations :</h3>
@@ -26,8 +28,8 @@
             <li>
                 Projet Fil Rouge :
                 <ul>
-                    <li><a href="./SHCatchPFR.html">Présentation</a></li>
-                    <li><a href="/SHCatch-MissionControl">Interface Web de Visualisation</a></li>
+                    <li><a href="./SHCatchPFR.html?lang=fr">Présentation</a></li>
+                    <li><a href="/SHCatch-MissionControl?lang=fr">Interface Web de Visualisation</a></li>
                     <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing">Dernière soutenance (21 mai 2025)</a></li>
                 </ul>
             </li>
@@ -36,7 +38,7 @@
             <li>Modélisation (Autodesk Fusion), Simulations (MuJoCo, OpenFOAM)</li>
             <li>Systèmes embarqués (ESP32, Arduino)</li>
         </ul>
-        
+
         <footer>
             <h3>Me contacter</h3>
             <ul>
@@ -45,13 +47,56 @@
             </ul>
         </footer>
     </div>
-    <script src="/script.js"></script>
+
+    <div id="EN">
+        <h1>Lucas DAVID Rino Yves</h1>
+
+        <p>Student in Robotics Engineering at Polytech Dijon</p>
+
+        <h3>What I'm currently doing :</h3>
+        <ul>
+            <li>
+                Study project :
+                <ul>
+                    <li><a href="./SHCatchPFR.html?lang=en">Presentation</a></li>
+                    <li><a href="/SHCatch-MissionControl?lang=en">WIP Visualization tool</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing">Last defence (May 21th 2025)</a>
+                    </li>
+                </ul>
+            </li>
+            <li>Contro Theory (PID, Robust MPC)</li>
+            <li>FANUC R-30iA Mate Controller & FANUC M-10iA arm</li>
+            <li>CAD (Autodesk Fusion), Simulations (physics with MuJoCo, CFD with OpenFOAM)</li>
+            <li>Embedded systems (ESP32, Arduino)</li>
+        </ul>
+
+        <footer>
+            <h3>Contacts</h3>
+            <a href="https://x.com/LucasDaRiYv">𝕏</a>
+            <a href="mailto:lucas@lucas-david-ry.com">mail</a>
+        </footer>
+    </div>
+
     <script>
-        let picture_font_size = "0"
-        let v_width = window.innerWidth
-        picture_font_size = Math.min( v_width * 0.005, 5 )
-        document.getElementById("picture").style.fontSize = (picture_font_size.toString()+"px");
-        console.log((picture_font_size.toString()+"pt"));
-        console.log(typeof((picture_font_size.toString()+"pt")));
+        const frenchPage = document.getElementById("FR");
+        const englishPage = document.getElementById("EN");
+
+        let params = new URLSearchParams(document.location.search);
+        let lang = params.get("lang");
+
+        if (lang == null) {
+            lang = navigator.language.slice(0, 2);
+            console.log(lang);
+        }
+
+        if (lang === "fr") {
+            frenchPage.style.display = "block";
+            englishPage.style.display = "none";
+        } else {
+            frenchPage.style.display = "none";
+            englishPage.style.display = "block";
+        }
     </script>
 </body>
+
+</html>
