@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <!-- Design de site inspiré par hyperturing.com -->
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Lucas Da R Y</title>
+
+    <title>Lucas DAVID RY</title>
+    <meta name="description" content="Personal webpage presenting my work, my life, and contacts.">
+
+    <!-- Yes dear crawlers, explore my pages -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Lucas DAVID Rino Yves personnal website">
+    <meta property="og:description" content="Personal webpage presenting my work, my life, and contacts">
+    <meta property="og:image" content="https://www.lucas-david-ry.com/assets/img/pp_web.jpg">
+    <meta property="og:url" content="https://www.lucas-david-ry.com/">
+    <meta property="og:type" content="website">
+
+    <!-- X tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lucas DAVID Rino Yves">
+    <meta name="twitter:creator" content="@LucasDaRiYv">
+    <meta name="twitter:description" content="Student in Robotics, working on hardware-in-the-loop simulations, FANUC, and the Super Heavy Catch maneuver !">
+    <meta name="twitter:image" content="https://www.lucas-david-ry.com/assets/img/pp_web.jpg">
+
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/ico" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <header>
-        <img id="profile_picture" src="./assets/img/pp_web.jpg" />
-    </header>
     <div id="FR">
+        <img class="profile_picture" src="./assets/img/pp_web.jpg" />
         <h1>Lucas DAVID Rino Yves</h1>
 
         <p>Etudiant en Ingénierie Robotique à Polytech Dijon</p>
@@ -28,56 +47,147 @@
             <li>
                 Projet Fil Rouge :
                 <ul>
-                    <li><a href="./SHCatchPFR.html?lang=fr">Présentation</a></li>
-                    <li><a href="/SHCatch-MissionControl?lang=fr">Interface Web de Visualisation</a></li>
-                    <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing">Dernière soutenance (21 mai 2025)</a></li>
+                    <li><a href="./SHCatchPFR.html?lang=fr" class="flashy">Présentation</a></li>
+                    <li><a href="/SHCatch-MissionControl?lang=fr" class="flashy">Interface Web de Visualisation</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing" class="flashy">Dernière soutenance (21 mai 2025)</a></li>
                 </ul>
             </li>
             <li>Théorie du Contrôle (PID, MPC robuste)</li>
-            <li>FANUC Controller R-30iA Mate</li>
+            <li>FANUC Controller R-30iA Mate & bras FANUC M-10iA (programmation TP et KAREL)</li>
             <li>Modélisation (Autodesk Fusion), Simulations (MuJoCo, OpenFOAM)</li>
             <li>Systèmes embarqués (ESP32, Arduino)</li>
         </ul>
 
         <footer>
             <h3>Me contacter</h3>
-            <ul>
-                <li><a href="https://x.com/LucasDaRiYv">X</a></li>
-                <li><a href="mailto:lucas@lucas-david-ry.com">mail</a></li>
-            </ul>
+            <div id="links">
+                <a href="https://x.com/LucasDaRiYv" id="Xlink">𝕏 Profile</a>
+                <a href="mailto:lucas@lucas-david-ry.com" id="MAILlink"> Mail</a>
+            </div>
         </footer>
     </div>
 
     <div id="EN">
-        <h1>Lucas DAVID Rino Yves</h1>
+        <div id="ENcontent">
+            <div class="left">
+                <img class="profile_picture" src="./assets/img/pp_web.jpg" />
+                <h1>Lucas DAVID Rino Yves</h1>
 
-        <p>Student in Robotics Engineering at Polytech Dijon</p>
+                <p>Student in Robotics Engineering at <a href="https://polytech.ube.fr/">Polytech Dijon</a></p>
+                <p>Civilization has been in V1.0 for too long</p>
 
-        <h3>What I'm currently doing :</h3>
-        <ul>
-            <li>
-                Study project :
+                <h3>What I'm currently doing :</h3>
                 <ul>
-                    <li><a href="./SHCatchPFR.html?lang=en">Presentation</a></li>
-                    <li><a href="/SHCatch-MissionControl?lang=en">WIP Visualization tool</a></li>
-                    <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing">Last defence (May 21th 2025)</a>
+                    <li>
+                        Flagship project :
+                        <ul>
+                            <li><a href="/SHCatch-MissionControl?lang=en" class="flashy">WIP Visualization tool</a></li>
+                            <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing" class="flashy">Last defence (French) (May 21th 2025)</a>
+                            </li>
+                        </ul>
                     </li>
+                    <li>Control Theory (PID, Robust MPC)</li>
+                    <li>FANUC R-30iA Mate Controller & FANUC M-10iA arm (TP and KAREL programming)</li>
+                    <li>CAD (Autodesk Fusion), Simulations (physics with MuJoCo, CFD with OpenFOAM)</li>
+                    <li>Embedded systems (ESP32, Arduino)</li>
                 </ul>
-            </li>
-            <li>Contro Theory (PID, Robust MPC)</li>
-            <li>FANUC R-30iA Mate Controller & FANUC M-10iA arm</li>
-            <li>CAD (Autodesk Fusion), Simulations (physics with MuJoCo, CFD with OpenFOAM)</li>
-            <li>Embedded systems (ESP32, Arduino)</li>
-        </ul>
+                <footer>
+                    <h3>Contacts</h3>
+                    <div class="links">
+                        <a href="https://x.com/LucasDaRiYv" class="Xlink">𝕏 Profile</a>
+                        <a href="mailto:lucas@lucas-david-ry.com" class="MAILlink"> Mail</a>
+                    </div>
+                </footer>
+                <object data="./assets/img/down_arrow.svg" type="image/svg+xml" class="downArrow">down arrow</object>
+            </div>
+            <div class="right">
+                <section>
+                    <h3>Flagship project</h3>
 
-        <footer>
-            <h3>Contacts</h3>
-            <a href="https://x.com/LucasDaRiYv">𝕏</a>
-            <a href="mailto:lucas@lucas-david-ry.com">mail</a>
-        </footer>
+                    <h4>
+                        <a href="./SHCatchPFR.html?lang=en" class="flashy">Super Heavy Catch</a>
+                    </h4>
+                    <p>2.5 years long engineering solo project : reverse-engineer the Super Heavy Booster commands to allow it to be caught in a simulated environment.<br>
+                        And to prepare myself for <a href="https://olympiades-fanuc.com/">France FANUC Young Talent competition</a>, I'm using a FANUC robotic arm to recreate the simulated environment in a real robotic cell, with sensorized & actuated mockups.
+                    </p>
+
+                </section>
+                <section>
+                    <h3>Experiences</h3>
+
+                    <h4><a href="https://imvia.ube.fr/">ImVia Lab.</a> (month internship) - July 2025</h4>
+                    <p>During this month, I presented my flagship project to MIT France and Safran Tech representative, implemented GUIs and started Computational Fluid Dynamics for aerodynamics.
+                        I also implemented my own version of Remote Dynamic Pathing on a FANUC R-30iA Mate controller (open-source library soon to be published).
+                    </p>
+
+                    <h4>Club NSI - 2020</h4>
+                    <p>In a try to help my Computer Sciences classmates in high-school, I set up with the help of the high-school administration, a 1-hour period every 2 weeks to reexplain classes materials, help with homework, as well as going futher exploring what tools developers need to use for real projects like Git or APIs. <br>
+                        It was not really sucessful sadly...
+                    </p>
+
+                    <h4>Intermarché (job shadowing) - 2019</h4>
+                    <p>A week required to pass my academic year, at a supermarket. I helped clean the floor, shelve products, align the products on the shelves and check item pricing.</p>
+
+                </section>
+                <section>
+                    <h3>Formation & diplomas</h3>
+
+                    <h4>Robotics Engineering at <a href="https://polytech.ube.fr/">Polytech Dijon</a> (Le Creusot, France)</h4>
+                    <p>Delegate for 2 years, I study Mechatronics, Automation, C++ Programming, Algebra & Optimization</p>
+
+                    <p>TOEIC : 970/900 on Feb. 2025</p>
+
+                    <h4>"Prépa" : Two-year intensive preparation for national exams for engineering schools at Gay-Lussac (Limoges, France)</h4>
+                    <p>Fundamental Maths and Physics, with Computer Science, English and Philosophy. Multiple exams per week.</p>
+
+                    <h4>"BAC" : High-school Diploma at Georges Cabanis (Brive-la-gaillarde, France)</h4>
+                    <p>General track, with Maths and Computer Science options. With honors</p>
+
+                </section>
+                <section>
+                    <h3>Sports</h3>
+
+                    <h4><span class="tooltip">Volleyball -- 2024-2025<img class="tooltipContent" src="assets/img/CVB.jpg" /></span></h4>
+                    <p>At CVB (Creusot Volley Ball), I'm a middle blocker in one of our Regional teams. <br />
+                        I'm playing about 4 times 2 hours per week, excluding competitions on the weekend.
+                    </p>
+
+                    <h4>Commercial gym -- 2021</h4>
+                    <p>Did a 8 months transformation, 6 days a week early in the morning when all machine were available. Made me feel much better as overweight wasn't far.</p>
+
+                    <h4>Taekwondo -- 2012-2014</h4>
+                    <p>For 3 years, I did Taekwondo (a Korean martial art) including 2 years with sabom VIDAL Stephane, European champion and multiple France champion.</p>
+
+                </section>
+                <section>
+                    <h3>Programming experiences</h3>
+
+                    <h4>C++</h4>
+                    <p>I use C++ for the most important projects, with socket communications, multithreading and GUIs with ImGui.<br />
+                        In current projects, I will need to work with SQL databases and SFML framework in C++.
+                    </p>
+
+                    <h4>Web development</h4>
+                    <p>I regularly use HTML/CSS/JS for study projects, from advanced interfaces with graphs and statistics, 3d environments, and this website.</p>
+
+                </section>
+                <section>
+                    <h3>Local involvement</h3>
+
+                    <h4>Village des Sciences -- 2024 & 2025</h4>
+                    <p>Volunteer to animate multiple stands at a science forum, from simple funny robots for kids, VR experiences, and <span class="tooltip">SpaceX's Super Heavy first catch in live with a respectable crowd<img class="tooltipContent" src="assets/img/atelier_ift5.png" /></span>, as well as presenting my project to everyday people.</p>
+                </section>
+
+                <!--Ugly way to make space, but it works-->
+                <!-- <div style="height: 20vh;" class=""></div> -->
+            </div>
+        </div>
+
+
     </div>
 
     <script>
+        // Language script
         const frenchPage = document.getElementById("FR");
         const englishPage = document.getElementById("EN");
 
@@ -96,6 +206,22 @@
             frenchPage.style.display = "none";
             englishPage.style.display = "block";
         }
+    </script>
+
+    <script>
+        const tooltips = document.querySelectorAll(".tooltip");
+
+        tooltips.forEach(tooltip => {
+            tooltip.addEventListener("mouseenter", _ => {
+                tooltip.classList.add("show");
+            })
+            tooltip.addEventListener("mouseleave", _ => {
+                tooltip.classList.remove("show");
+            })
+            tooltip.addEventListener("contextmenu", (e) => {
+                tooltip.classList.add("show");
+            })
+        });
     </script>
 </body>
 
