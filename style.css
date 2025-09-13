@@ -361,8 +361,12 @@ footer span img {
 		scrollbar-width: auto;
 	}
 
+	/* Disable tooltips on mobile, it breaks */
+	.tooltip {
+		border-bottom: none;
+	}
+
 	.tooltip.show .tooltipContent {
-		/* Disable tooltips on mobile, it breaks */
 		visibility: hidden;
 	}
 }
