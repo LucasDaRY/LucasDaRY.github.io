@@ -37,34 +37,117 @@
 
 <body>
     <div id="FR">
-        <img class="profile_picture" src="./assets/img/pp_web.jpg" />
-        <h1>Lucas DAVID Rino Yves</h1>
+        <div id="FRcontent">
+            <div class="left">
+                <img class="profile_picture" src="./assets/img/pp_web.jpg" />
+                <h1>Lucas DAVID Rino Yves</h1>
 
-        <p>Etudiant en Ingénierie Robotique à Polytech Dijon</p>
+                <p>Etudiant en Ingénierie Robotique à <a href="https://polytech.ube.fr/">Polytech Dijon</a></p>
+                <p>Notre Civilisation est en V1 depuis bien trop longtemps</p>
 
-        <h3>Mes dernières occupations :</h3>
-        <ul>
-            <li>
-                Projet Fil Rouge :
+                <h3>Mes dernières occupations :</h3>
                 <ul>
-                    <li><a href="./SHCatchPFR.html?lang=fr" class="flashy">Présentation</a></li>
-                    <li><a href="/SHCatch-MissionControl?lang=fr" class="flashy">Interface Web de Visualisation</a></li>
-                    <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing" class="flashy">Dernière soutenance (21 mai 2025)</a></li>
+                    <li>
+                        Projet Fil Rouge :
+                        <ul>
+                            <li><a href="/SHCatch-MissionControl?lang=fr" class="flashy">Interface Web de Visualisation</a></li>
+                            <li><a href="https://docs.google.com/presentation/d/1TbwBAak8IyknAiGxPpallPm2TkcSJglzNPuzLGGQWVc/edit?usp=sharing" class="flashy">Dernière soutenance (21 mai 2025)</a></li>
+                        </ul>
+                    </li>
+                    <li>Théorie du Contrôle (PID, MPC robuste)</li>
+                    <li>FANUC Controller R-30iA Mate & bras FANUC M-10iA (programmation TP et KAREL)</li>
+                    <li>Modélisation (Autodesk Fusion), Simulations (MuJoCo, OpenFOAM)</li>
+                    <li>Systèmes embarqués (ESP32, Arduino)</li>
                 </ul>
-            </li>
-            <li>Théorie du Contrôle (PID, MPC robuste)</li>
-            <li>FANUC Controller R-30iA Mate & bras FANUC M-10iA (programmation TP et KAREL)</li>
-            <li>Modélisation (Autodesk Fusion), Simulations (MuJoCo, OpenFOAM)</li>
-            <li>Systèmes embarqués (ESP32, Arduino)</li>
-        </ul>
 
-        <footer>
-            <h3>Me contacter</h3>
-            <div id="links">
-                <a href="https://x.com/LucasDaRiYv" id="Xlink">𝕏 Profile</a>
-                <a href="mailto:lucas@lucas-david-ry.com" id="MAILlink"> Mail</a>
+                <footer>
+                    <h3>Me contacter</h3>
+                    <div class="links">
+                        <a href="https://x.com/LucasDaRiYv" class="Xlink">𝕏 Profile</a>
+                        <a href="mailto:lucas@lucas-david-ry.com" class="MAILlink"> Mail</a>
+                    </div>
+                </footer>
+                <object data="./assets/img/down_arrow.svg" type="image/svg+xml" class="downArrow">down arrow</object>
             </div>
-        </footer>
+            <div class="right">
+                <section>
+                    <h3>Projet pilote / Projet d'étude</h3>
+
+                    <h4>
+                        <a href="./SHCatchPFR.html?lang=en" class="flashy">Retour de Super Heavy</a>
+                    </h4>
+                    <p>Projet d'étude s'étallent sur deux ans et demi, dans l'objectif de rétro-concevoir la commande du propulseur de fusée Super Heavy pour l'attraper en plein vol.<br>
+                        Et pour me préparer aux <a href="https://olympiades-fanuc.com/">Olympiades FANUC</a>, j'utilise un bras robotisé FANUC pour recréer ma simulation dans une cellule robotisée munie de capteurs et d'actuateur sur les différentes maqettes.
+                    </p>
+
+                </section>
+                <section>
+                    <h3>Experiences</h3>
+
+                    <h4><a href="https://imvia.ube.fr/">ImVia Lab.</a> (stage d'un mois) - Juillet 2025</h4>
+                    <p>Pendant ce stage, j'ai eu la chance de présenter mon projet pilote à des représentants du MIT France et de Safran Tech, ai implémenter une interface utilisateur et ai commencé les études aérodynamiques pour ce même projet. <br>
+                        J'ai aussi implémenté mon propre algorithme de trajectoire dynamique sur un controlleur FANUC R-30iA Mate (librairie open-source qui sera bientôt partagée).
+                    </p>
+
+                    <h4>Club NSI - 2020</h4>
+                    <p>Dans la volonté d'aider mes camarades en option Informatique au Lycée, j'ai mis en place des séances d'une heure toutes les deux semaines pour réexpliquer les notions de cours, aider aux devoirs, et présenter l'utilité d'outils comme Git ou des API, essentielles pour des gros projets de programmation.<br>
+                        Mais le club a dû s'arrêter par manque de monde.
+                    </p>
+
+                    <h4>Intermarché (stage d'observation de 3ème) - 2019</h4>
+                    <p>Stage d'observation dans un supermarché. J'ai passé la serpière, mit en rayon, aligné les produits "facing", ai vérifier les étiquettes prix, et me suis occupé d'une dizaine de personnes en caisse.</p>
+
+                </section>
+                <section>
+                    <h3>Formation & diplômes</h3>
+
+                    <h4>Ingénierie Robotique à <a href="https://polytech.ube.fr/">Polytech Dijon</a> (Le Creusot, France)</h4>
+                    <p>Délégué pendant deux années, j'étudie l'électronique, l'automatique, la programmation C++, ainsi que l'algèbre et l'optimization mathématique.</p>
+
+                    <p>TOEIC : 970/900, passé en Février 2025</p>
+
+                    <h4>Prépa MP2I/MPI : Classe Préparatoire aux Grandes Ecoles au Lycée Gay-Lussac (Limoges, France)</h4>
+                    <p>Maths, Physiques et Informatiques Théoriques, avec de l'Anglais et de la Philosophie. Plusieurs évaluations par semaine.</p>
+
+                    <h4>BAC Général au Lycée Georges Cabanis (Brive-la-gaillarde, France)</h4>
+                    <p>Mention Bien, options Mathématiques, Informatique, et Science de l'Ingénieur.</p>
+
+                </section>
+                <section>
+                    <h3>Sports</h3>
+
+                    <h4><span class="tooltip">Volleyball -- 2024-2025<img class="tooltipContent" src="assets/img/CVB.jpg" /></span></h4>
+                    <p>Au CVB (Creusot Volley Ball), je joue au poste de central dans une des deux équipes régionnales.<br />
+                        Je joue environ 3 fois par semaines, sans compter les compétitions.
+                    </p>
+
+                    <h4>Musculation -- 2021</h4>
+                    <p>Transformation sur 8 mois, 6 jours par semaine tôt le matin avant que la salle de sport soit envahie. Je me suis échapé d'un surpoids certain.</p>
+
+                    <h4>Taekwondo -- 2012-2014</h4>
+                    <p>Pendant trois ans, j'ai fait du Taekwondo (Art Martial Coréen) dont deux ans avec Maître VIDAL Stephane, champion Européen sénior et multiple champion de France.</p>
+
+                </section>
+                <section>
+                    <h3>Expérience en programmation</h3>
+
+                    <h4>C++</h4>
+                    <p>J'utilise le C++ pour mes projets les plus importants, communication, système embarqué et interfaces utilisateur.<br />
+                        Actuellement, je dois travailler avec la librairie SFML.
+                    </p>
+
+                    <h4>Web</h4>
+                    <p>J'utilise régulièrement HTML/CSS/JS, pour des interfaces intuitives, des graphiques/statistiques, visualisation 3D, et la page sur votre écran.</p>
+
+                </section>
+                <section>
+                    <h3>Interêt local</h3>
+
+                    <h4>Village des Sciences -- 2024 & 2025</h4>
+                    <p>Bénévole pour animer plusieurs ateliers dans une foire scientifique pour jeunes et adultes, de simples robots pour enfants, casques VR, et <span class="tooltip">le premier retour du Super Heavy de SpaceX, en direct<img class="tooltipContent" src="assets/img/atelier_ift5.png" /></span>, ainsi que de présenter mon projet pilote à une audience variée.</p>
+                </section>
+            </div>
+        </div>
     </div>
 
     <div id="EN">
@@ -74,7 +157,7 @@
                 <h1>Lucas DAVID Rino Yves</h1>
 
                 <p>Student in Robotics Engineering at <a href="https://polytech.ube.fr/">Polytech Dijon</a></p>
-                <p>Civilization has been in V1.0 for too long</p>
+                <p>Civilization has been in V1 for too long</p>
 
                 <h3>What I'm currently doing :</h3>
                 <ul>
@@ -149,7 +232,7 @@
 
                     <h4><span class="tooltip">Volleyball -- 2024-2025<img class="tooltipContent" src="assets/img/CVB.jpg" /></span></h4>
                     <p>At CVB (Creusot Volley Ball), I'm a middle blocker in one of our Regional teams. <br />
-                        I'm playing about 4 times 2 hours per week, excluding competitions on the weekend.
+                        I'm playing about 3 times 2 hours per week, excluding competitions on the weekend.
                     </p>
 
                     <h4>Commercial gym -- 2021</h4>
@@ -164,7 +247,7 @@
 
                     <h4>C++</h4>
                     <p>I use C++ for the most important projects, with socket communications, multithreading and GUIs with ImGui.<br />
-                        In current projects, I will need to work with SQL databases and SFML framework in C++.
+                        In current projects, I will need to work with the SFML framework.
                     </p>
 
                     <h4>Web development</h4>
