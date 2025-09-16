@@ -178,7 +178,7 @@
                     <h3>Contacts</h3>
                     <div class="links">
                         <a href="https://x.com/LucasDaRiYv" class="Xlink">𝕏 Profile</a>
-                        <a href="mailto:lucas@lucas-david-ry.com" class="MAILlink"> Mail</a>
+                        <a href="mailto:lucas@lucas-david-ry.com" class="MAILlink">✉ Mail</a>
                     </div>
                 </footer>
                 <object data="./assets/img/down_arrow.svg" type="image/svg+xml" class="downArrow">down arrow</object>
@@ -269,28 +269,7 @@
 
     </div>
 
-    <script>
-        // Language script
-        const frenchPage = document.getElementById("FR");
-        const englishPage = document.getElementById("EN");
-
-        let params = new URLSearchParams(document.location.search);
-        let lang = params.get("lang");
-
-        if (lang == null) {
-            lang = navigator.language.slice(0, 2);
-            console.log(lang);
-        }
-
-        if (lang === "fr") {
-            frenchPage.style.display = "block";
-            englishPage.style.display = "none";
-        } else {
-            frenchPage.style.display = "none";
-            englishPage.style.display = "block";
-        }
-    </script>
-
+    <script src="language.js"></script>
     <script>
         const tooltips = document.querySelectorAll(".tooltip");
 

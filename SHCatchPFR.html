@@ -48,18 +48,20 @@
 </head>
 
 <body>
+    <div id="FR">
     <header>
         <h1 style="margin-top: 50px;">Retour de Super Heavy - Projet d'étude</h1>
         <h5>Par DAVID Lucas</h5>
-        <div id="detailsSwitch">
-            <button id="presTypeSwitchButton" class="selectPresType" onclick="switchPresType()">Voir une présentation détaillée</button>
+            <div class="detailsSwitch">
+                <button class="selectPresType selectedPresType" onclick="setPresType('simple')" data-i18n="toggleDetails.simple"></button>
+                <button class="selectPresType" onclick="setPresType('complete')" data-i18n="toggleDetails.complete"></button>
         </div>
-        <p>Dernière mise à jour: 25 juillet 2025</p>
+            <p>Dernière mise à jour: 16 Septembre 2025</p>
         <br />
     </header>
 
     <!--Présentation détaillée-->
-    <div class="presentation">
+        <div class="presentation detailedPresentation">
         <h2>Description</h2>
 
         <p>La robotique étant un domaine très large, j'ai proposé en projet d'étude un sujet d'aérospatiale avec une approche robotique, qui fait intervenir passion, théorie, et pratique.<br />Mon sujet a été accepté par M.FOFI, mon professeur encadrant, en une vingtaine de minutes.</p>
@@ -211,20 +213,8 @@
         <hr>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
     <!--Présentation non détaillée-->
-    <div class="presentation showPres">
+        <div class="presentation plainPresentation showPres">
         <h2>Description</h2>
 
         <p>La robotique étant un domaine très large, j'ai proposé en projet d'étude un sujet d'aérospatiale avec une approche robotique, qui fait intervenir passion, théorie, et pratique.<br />Mon sujet a été accepté par M.FOFI, mon professeur encadrant, en une vingtaine de minutes.</p>
@@ -362,16 +352,6 @@
         <hr>
     </div>
 
-
-
-
-
-
-
-
-
-
-
     <footer style="margin: 5vh 5vw">
         <span>
             <span>
@@ -385,20 +365,24 @@
     </footer>
 
     <script>
-        const detailleDiv = document.getElementsByClassName("presentation")[0]
-        const accessibleDiv = document.getElementsByClassName("presentation")[1]
-        const button = document.getElementById("presTypeSwitchButton");
-        let showState = "accessible"
+        const detailledDivs = document.querySelectorAll(".detailedPresentation");
+        const plainDivs = document.querySelectorAll(".plainPresentation");
+        const buttons = document.querySelectorAll(".selectPresType");
+        let currentPresType = "simple";
 
-        function switchPresType() {
-            detailleDiv.classList.toggle("showPres")
-            accessibleDiv.classList.toggle("showPres")
-            if (showState === "accessible") {
-                button.innerText = "Voir une présentation accessible"
-                showState = "détaillée"
-            } else if (showState === "détaillée") {
-                button.innerText = "Voir une présentation détaillée"
-                showState = "accessible"
+        function setPresType(type) {
+            if (type != currentPresType) {
+                detailledDivs.forEach((div) => {
+                    div.classList.toggle("showPres");
+                });
+                plainDivs.forEach((div) => {
+                    div.classList.toggle("showPres");
+                });
+                buttons.forEach((button) => {
+                    button.classList.toggle("selectedPresType");
+                })
+                currentPresType = type;
+
             }
         }
     </script>

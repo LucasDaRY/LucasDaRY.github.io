@@ -1,3 +1,7 @@
+:root {
+	--green: #0d828b;
+}
+
 @font-face {
 	font-family: D-DIN;
 	font-weight: normal;
@@ -116,7 +120,7 @@ a:visited {
 	font-family: D-DIN, "IBM Plex Mono", monospace;
 	text-decoration: none;
 	font-weight: bold;
-	background-image: linear-gradient(to right, #4ea833, #333);
+	background-image: linear-gradient(to right, var(--green), #333);
 	background-size: 300% 100%;
 	color: transparent;
 	background-clip: text;
@@ -129,6 +133,7 @@ a:visited {
 	width: 100%;
 	line-height: 3vh;
 	column-gap: 8px;
+	font-weight: bold;
 }
 
 .Xlink,
@@ -148,7 +153,7 @@ a:visited {
 
 .MAILlink,
 .MAILlink:visited {
-	background: #0bdba7;
+	background: var(--green);
 	border-radius: 3vh;
 	color: white;
 	text-align: center;
@@ -200,7 +205,7 @@ li::before {
 	margin: 0.4rem;
 }
 
-#detailsSwitch {
+.detailsSwitch {
 	text-align: end;
 }
 
@@ -219,8 +224,15 @@ li::before {
 
 .selectPresType:hover,
 .selectPresType:active {
-	background-color: hsl(120, 20%, 80%);
+	/* Color gets inherited from border automatically */
+	outline: 2px solid;
+	outline-offset: -2px;
 	cursor: pointer;
+}
+
+.selectedPresType {
+	color: var(--green);
+	border-color: var(--green);
 }
 
 .presentation {
