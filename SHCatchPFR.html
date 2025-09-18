@@ -49,321 +49,631 @@
 
 <body>
     <div id="FR">
-    <header>
-        <h1 style="margin-top: 50px;">Retour de Super Heavy - Projet d'étude</h1>
-        <h5>Par DAVID Lucas</h5>
+        <header>
+            <h1 style="margin-top: 50px;">Retour de Super Heavy - Projet d'étude</h1>
+            <h5>Par DAVID Lucas</h5>
             <div class="detailsSwitch">
                 <button class="selectPresType selectedPresType" onclick="setPresType('simple')" data-i18n="toggleDetails.simple"></button>
                 <button class="selectPresType" onclick="setPresType('complete')" data-i18n="toggleDetails.complete"></button>
-        </div>
+            </div>
             <p>Dernière mise à jour: 16 Septembre 2025</p>
-        <br />
-    </header>
+            <br />
+        </header>
 
-    <!--Présentation détaillée-->
+        <!--Présentation détaillée-->
         <div class="presentation detailedPresentation">
-        <h2>Description</h2>
+            <h2>Description</h2>
 
-        <p>La robotique étant un domaine très large, j'ai proposé en projet d'étude un sujet d'aérospatiale avec une approche robotique, qui fait intervenir passion, théorie, et pratique.<br />Mon sujet a été accepté par M.FOFI, mon professeur encadrant, en une vingtaine de minutes.</p>
+            <p>La robotique étant un domaine très large, j'ai proposé en projet d'étude un sujet d'aérospatiale avec une approche robotique, qui fait intervenir passion, théorie, et pratique.<br />Mon sujet a été accepté par M.FOFI, mon professeur encadrant, en une vingtaine de minutes.</p>
 
-        <div class="split">
-            <p>
-                L'objectif est de <u>rétro-concevoir la commande</u> du retour d'un propulseur de fusée, Super Heavy.
-                Le propulseur passe par plusieurs phases lors de sa descente, avec des moyens de <u>guidances différents</u> dans un environnement <u>perturbé</u> (aérodynamiquement, erreurs de commandes et autres).
-                Une chose aussi compliquée à expliquer bloquée derrière un écran d'ordinateur est plus que dommage, et empêche de vulgariser la science au grand public, c'est une des raisons de pourquoi je veux reproduire ma simulation à échelle humaine dans une cellule robotisée.
-                Et enfin, utiliser cette reproduction physique pour mettre en place une simulation <u>"hardware-in-the-loop"</u>, où j'utilise la lecture de vrais capteurs montés sur mes maquettes, pour alimenter ma simulation.
-                <br /><br />
-                Les différentes étapes incluent : <br />
-                - Descente (guidance à l'aide des grilles aérodynamiques)<br />
-                - Freinage (allumage de ~13 moteurs)<br />
-                - Dernière manoeuvre (retour de Super Heavy sur les bras de la tour avec 3 moteurs)<br />
-                <br />
-                Mon étude commence à 40km d'altitude, avant que l'atmosphère ne soit assez dense pour avoir une influance sur la trajectoire du propulseur.<br />
-                Actuellement, ma principale occupation est de m'assurer que mon projet est faisable, je m'occupe donc de faire fonctionner et coordonner toutes les parties du projet : un proof-of-concept. Je m'appuierais à la précision et aux très fins détails une fois tout cadencé.
-            </p>
-            <div style="width: 40rem">
-                <video controls autoplay="true" muted loop style="aspect-ratio: 16/9;">
-                    Vidéo de la conception propulseur & tour de lancement
-                    <source src="assets/vids/SH_ift5_catch.mp4" type="video/mp4">
-                </video>
+            <div class="split">
                 <p>
-                    Essai n°5 Starship/Super Heavy, par SpaceX <br />
-                    Le propulseur exécute une rentrée atmosphérique et fait une dernière manoeuvre, moteurs allumés, pour se faire attraper
+                    L'objectif est de <u>rétro-concevoir la commande</u> du retour d'un propulseur de fusée, Super Heavy.
+                    Le propulseur passe par plusieurs phases lors de sa descente, avec des moyens de <u>guidances différents</u> dans un environnement <u>perturbé</u> (aérodynamiquement, erreurs de commandes et autres).
+                    Une chose aussi compliquée à expliquer bloquée derrière un écran d'ordinateur est plus que dommage, et empêche de vulgariser la science au grand public, c'est une des raisons de pourquoi je veux reproduire ma simulation à échelle humaine dans une cellule robotisée.
+                    Et enfin, utiliser cette reproduction physique pour mettre en place une simulation <u>"hardware-in-the-loop"</u>, où j'utilise la lecture de vrais capteurs montés sur mes maquettes, pour alimenter ma simulation.
+                    <br /><br />
+                    Les différentes étapes incluent : <br />
+                    - Descente (guidance à l'aide des grilles aérodynamiques)<br />
+                    - Freinage (allumage de ~13 moteurs)<br />
+                    - Dernière manoeuvre (retour de Super Heavy sur les bras de la tour avec 3 moteurs)<br />
+                    <br />
+                    Mon étude commence à 40km d'altitude, avant que l'atmosphère ne soit assez dense pour avoir une influance sur la trajectoire du propulseur.<br />
+                    Actuellement, ma principale occupation est de m'assurer que mon projet est faisable, je m'occupe donc de faire fonctionner et coordonner toutes les parties du projet : un proof-of-concept. Je m'appuierais à la précision et aux très fins détails une fois tout cadencé.
                 </p>
+                <div style="width: 40rem">
+                    <video controls autoplay="true" muted loop style="aspect-ratio: 16/9;">
+                        Vidéo de la conception propulseur & tour de lancement
+                        <source src="assets/vids/SH_ift5_catch.mp4" type="video/mp4">
+                    </video>
+                    <p>
+                        Essai n°5 Starship/Super Heavy, par SpaceX <br />
+                        Le propulseur exécute une rentrée atmosphérique et fait une dernière manoeuvre, moteurs allumés, pour se faire attraper
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <br />
-        <hr>
-        <h2>Simulation</h2>
+            <br />
+            <hr>
+            <h2>Simulation</h2>
 
-        <p>J'utilise <a href="https://mujoco.org/">MuJoCo</a>, en C++, car c'est un moteur physique très utilisé aujourd'hui pour la recherche et des application d'apprentissage par renforcement, notamment chez Nvidia ou Google Deepmind.</p>
+            <p>J'utilise <a href="https://mujoco.org/">MuJoCo</a>, en C++, car c'est un moteur physique très utilisé aujourd'hui pour la recherche et des application d'apprentissage par renforcement, notamment chez Nvidia ou Google Deepmind.</p>
 
-        <div class="split">
-            <div style="width: 35vw">
-                <a href="assets/img/proxsim.png">
+            <div class="split">
+                <div style="width: 35vw">
                     <img src="assets/img/proxsim.png" style="aspect-ratio: 16/9;">
-                </a>
+                    <p>
+                        ProxSim, logiciel de simulation/contrôle à distance. <br />
+                        Interface en développement
+                    </p>
+                </div>
                 <p>
-                    ProxSim, logiciel de simulation/contrôle à distance. <br />
-                    Interface en développement
+                    Voici mon environnement de simulation, avec un modèle simpliste de Super Heavy. J'ai implémenté l'export de données en CSV, mon contrôleur de vol, et une interface pour interagir avec la simulation et avec les autres composants de mon projet (maquettes, cellule robotisée FANUC). <br />
+                    Super Heavy pour l'instant se tient "droit"/"debout" en tournant ses moteurs (guidance par TVC, Thrust Vector Control), peu importe sa position de départ, à l'aide de simples PIDs. Cet objectif fût surtout un bon prétexte pour mettre en place une <u>simulation contrôlée, stable et réaliste</u>.<br />
+                    <br />
+                    On peux voir au centre de l'écran, l'environnement de simulation MuJoCo, avec le propulseur. Et sur le reste de l'écran, une interface ImGui me permet de mettre en pause, relancer la simulation, modifier la caméra, modifier mes conditions initiales et relever la télémétrie importante comme l'altitude du propulseur, son accélération ou l'état de ses moteurs.
+                    Je peux aussi depuis cette interface contrôler la cellule robotisée FANUC, autant pour envoyer des commandes manuelles simples de mouvement, ou des suivis de trajectoires complexes (c.f. partie Contrôle de la cellule robotisée).
                 </p>
             </div>
-            <p>
-                Voici mon environnement de simulation, avec un modèle simpliste de Super Heavy. J'ai implémenté l'export de données en CSV, mon contrôleur de vol, et une interface pour interagir avec la simulation et avec les autres composants de mon projet (maquettes, cellule robotisée FANUC). <br />
-                Super Heavy pour l'instant se tient "droit"/"debout" en tournant ses moteurs (guidance par TVC, Thrust Vector Control), peu importe sa position de départ, à l'aide de simples PIDs. Cet objectif fût surtout un bon prétexte pour mettre en place une <u>simulation contrôlée, stable et réaliste</u>.<br />
-                <br />
-                On peux voir au centre de l'écran, l'environnement de simulation MuJoCo, avec le propulseur. Et sur le reste de l'écran, une interface ImGui me permet de mettre en pause, relancer la simulation, modifier la caméra, modifier mes conditions initiales et relever la télémétrie importante comme l'altitude du propulseur, son accélération ou l'état de ses moteurs.
-                Je peux aussi depuis cette interface contrôler la cellule robotisée FANUC, autant pour envoyer des commandes manuelles simples de mouvement, ou des suivis de trajectoires complexes (c.f. partie Contrôle de la cellule robotisée).
-            </p>
-        </div>
 
-        <br />
-        <hr>
-        <h2>Contrôle de la cellule robotisée</h2>
+            <br />
+            <hr>
+            <h2>Contrôle de la cellule robotisée</h2>
 
-        <p>
-            Un projet d'étude est aussi une excuse pour apprendre en pratiquant. Voulant participer aux Olympiades FANUC cette année, j'ai demandé dès la proposition de mon projet d'utiliser un bras FANUC. Pour l'échelle de mon projet, le plus gros robot disponible à l'école m'a été accordé : un <code>M-10iA</code> avec un <code>R-30iA Mate</code>.<br />
-            L'objectif avec cette cellule robotisée est de recréer le plus fidèlement possible, <u>en flux tendu</u>, l'état de mon environnement de simulation. Une grande précision est nécéssaire pour ne pas fausser la lecture des centrales inertielles sur les maquettes.
-        </p>
-        <div class="split">
             <p>
-                Dans mon environnement de simulation, mon cycle de contrôle s'exécutera à 50Hz. Je peux donc à la même fréquence relever la position et l'orientation du propulseur, pour l'envoyer au FANUC.<br />
-                Un début fût d'utiliser la librairie <a href="https://github.com/torayeff/fanucpy">Fanucpy de Agajan Torayev</a>, et le tout fonctionnait très bien après adaptation pour le controlleur <code>R-30iA</code>. J'ai réécrit la librairie Python en C++, et incorporé les contrôle dans mon interface ProxSim. Mais avec la manière que fonctionnait les mouvements, le robot s'arrêtait à chaque point. Evidemment, un objet tombant du ciel ne prend pas de pause...
-                J'ai donc modifié les drivers-robots écrits en Karel et ai refait un programme TP (nécessaire pour le mouvement) spécifique pour mon utilisation. Voici comment il fonctionne : <br />
-                A chaque point reçu, le programme Karel calcule la trajectoire qui sera effectuée par le robot par petit bouts. Chaque trajectoire est coupée en ~50 positions intermédiaires sur lesquelles le robot passe en <code>CNT100</code>. La trajectoire est calculée selon une courbe de Bézier entre sa position actuelle et la nouvelle position reçue (sur les 6 composantes du repère <code>WORLD</code>), et met à jour les registres de position. <br />
-                Pendant ce temps, le programme TP itère sur les registres de positions (1 à 50), et passe à un nouveau groupe de positions (registres de 51 à 100) à chaque fois qu'un point est reçu. Utiliser deux "groupes" de registres permet de ne pas écrire sur un registre en lecture par le programme TP (car concurrence entre le programme Karel et programme TP). <br />
-                De plus, le controlleur FANUC fait déjà un calcul de trajectoire avec les options <code>CNT</code> qui lisent quelques positions en avance de la position actuelle. Ainsi la position "actuelle" pour mon calcul de trajectoire est en réalité, la prochaine sous-position. <br>
-                Découper les trajectoires en suite de sous-position me permet aussi d'éviter l'utilisation d'un <code>SKIP CONDITION</code>, qui ralentit obligatoirement le mouvement jusqu'à une vitesse nulle. <br />
-                <br />
-                Résultats ? Je peux envoyer la trajectoire du propulseur dans ma simulation, point par point, et le robot la <u>reproduit à l'identique</u>, sans appliquer de perturbations superflues sur les capteurs de mes maquettes. <br />
-                La vidéo présente le robot, recevant des points aléatoires dans un plan, avec des instructions de vitesses aléatoires. Il s'arrête s'il a atteint sa dernière cible, et les mouvements sont parfois saccadés sont causés pas le point de contrôle de la courbe de Bézier : le début de la courbe de Bézier n'est pas encore aligné avec la direction que le robot se déplace, la solution est sur papier, prête à implémentation.
+                Un projet d'étude est aussi une excuse pour apprendre en pratiquant. Voulant participer aux Olympiades FANUC cette année, j'ai demandé dès la proposition de mon projet d'utiliser un bras FANUC. Pour l'échelle de mon projet, le plus gros robot disponible à l'école m'a été accordé : un <code>M-10iA</code> avec un <code>R-30iA Mate</code>.<br />
+                L'objectif avec cette cellule robotisée est de recréer le plus fidèlement possible, <u>en flux tendu</u>, l'état de mon environnement de simulation. Une grande précision est nécéssaire pour ne pas fausser la lecture des centrales inertielles sur les maquettes.
             </p>
-            <div style="width: 20vw">
-                <video controls autoplay="true" muted loop>
-                    Vidéo de mouvement "fluide" par le bras FANUC
-                    <source src="assets/vids/FANUC_spline_out.mp4" type="video/mp4">
-                </video>
-                <p>Actuation à distance du robot FANUC<br />(Vitesse x2)</p>
+            <div class="split">
+                <p>
+                    Dans mon environnement de simulation, mon cycle de contrôle s'exécutera à 50Hz. Je peux donc à la même fréquence relever la position et l'orientation du propulseur, pour l'envoyer au FANUC.<br />
+                    Un début fût d'utiliser la librairie <a href="https://github.com/torayeff/fanucpy" target="_blank">Fanucpy de Agajan Torayev</a>, et le tout fonctionnait très bien après adaptation pour le controlleur <code>R-30iA</code>. J'ai réécrit la librairie Python en C++, et incorporé les contrôle dans mon interface ProxSim. Mais avec la manière que fonctionnait les mouvements, le robot s'arrêtait à chaque point. Evidemment, un objet tombant du ciel ne prend pas de pause...
+                    J'ai donc modifié les drivers-robots écrits en Karel et ai refait un programme TP (nécessaire pour le mouvement) spécifique pour mon utilisation. Voici comment il fonctionne : <br />
+                    A chaque point reçu, le programme Karel calcule la trajectoire qui sera effectuée par le robot par petit bouts. Chaque trajectoire est coupée en ~50 positions intermédiaires sur lesquelles le robot passe en <code>CNT100</code>. La trajectoire est calculée selon une courbe de Bézier entre sa position actuelle et la nouvelle position reçue (sur les 6 composantes du repère <code>WORLD</code>), et met à jour les registres de position. <br />
+                    Pendant ce temps, le programme TP itère sur les registres de positions (1 à 50), et passe à un nouveau groupe de positions (registres de 51 à 100) à chaque fois qu'un point est reçu. Utiliser deux "groupes" de registres permet de ne pas écrire sur un registre en lecture par le programme TP (car concurrence entre le programme Karel et programme TP). <br />
+                    De plus, le controlleur FANUC fait déjà un calcul de trajectoire avec les options <code>CNT</code> qui lisent quelques positions en avance de la position actuelle. Ainsi la position "actuelle" pour mon calcul de trajectoire est en réalité, la prochaine sous-position. <br>
+                    Découper les trajectoires en suite de sous-position me permet aussi d'éviter l'utilisation d'un <code>SKIP CONDITION</code>, qui ralentit obligatoirement le mouvement jusqu'à une vitesse nulle. <br />
+                    <br />
+                    Résultats ? Je peux envoyer la trajectoire du propulseur dans ma simulation, point par point, et le robot la <u>reproduit à l'identique</u>, sans appliquer de perturbations superflues sur les capteurs de mes maquettes. <br />
+                    La vidéo présente le robot, recevant des points aléatoires dans un plan, avec des instructions de vitesses aléatoires. Il s'arrête s'il a atteint sa dernière cible, et les mouvements sont parfois saccadés sont causés pas le point de contrôle de la courbe de Bézier : le début de la courbe de Bézier n'est pas encore aligné avec la direction que le robot se déplace, la solution est sur papier, prête à implémentation.
+                </p>
+                <div style="width: 20vw">
+                    <video controls autoplay="true" muted loop>
+                        Vidéo de mouvement "fluide" par le bras FANUC
+                        <source src="assets/vids/FANUC_spline_out.mp4" type="video/mp4">
+                    </video>
+                    <p>Actuation à distance du robot FANUC<br />(Vitesse x2)</p>
+                </div>
             </div>
-        </div>
 
-        <br />
-        <hr>
-        <h2>Conception et fonctionnement des maquettes</h2>
+            <br />
+            <hr>
+            <h2>Conception et fonctionnement des maquettes</h2>
 
-        <p>
-            Je dois donc modéliser puis imprimer en plastique un propulseur et une tour, fidèlement au vrai modèles, à l'échelle ~1:144. Ce choix d'échelle assure d'avoir un bon visuel sur la dernière manoeuvre dans la cellule robotisée. <br />
-            Ce fut mon premier projet de modélisation 3D, et ma première occasion d'utiliser une imprimante 3D.
-        </p>
-
-        <div class="split">
             <p>
-                En utilisant différentes informations officielles de SpaceX et des centaines de clichés de journalistes/reporters, je modèlise le propulseur sur Autodesk Fusion. <br />
-                Le vrai propulseur fait 69 mètres de hauteur pour 9 mètres de diamètres, ma maquette fait donc 50 centimètres de haut, assez large pour contenir une breadboard.<br />
-                Vous pouvez apercevoir ces modélisation dans <a href="https://www.lucas-david-ry.com/SHCatch-MissionControl/">cet outil de visualisation rudimentaire</a>.
+                Je dois donc modéliser puis imprimer en plastique un propulseur et une tour, fidèlement au vrai modèles, à l'échelle ~1:144. Ce choix d'échelle assure d'avoir un bon visuel sur la dernière manoeuvre dans la cellule robotisée. <br />
+                Ce fut mon premier projet de modélisation 3D, et ma première occasion d'utiliser une imprimante 3D.
             </p>
 
-            <div style="width: 30vw">
-                <video controls autoplay="true" muted loop>
-                    Vidéo de la conception propulseur & tour de lancement
-                    <source src="assets/vids/cad.mp4" type="video/mp4" defer>
-                </video>
-                <p>Modélisation propulseur & tour sur Autodesk Fusion (Avril 2025)</p>
+            <div class="split">
+                <p>
+                    En utilisant différentes informations officielles de SpaceX et des centaines de clichés de journalistes/reporters, je modèlise le propulseur sur Autodesk Fusion. <br />
+                    Le vrai propulseur fait 69 mètres de hauteur pour 9 mètres de diamètres, ma maquette fait donc 50 centimètres de haut, assez large pour contenir une breadboard.<br />
+                    Vous pouvez apercevoir ces modélisation dans <a href="https://www.lucas-david-ry.com/SHCatch-MissionControl/" target="_blank">cet outil de visualisation rudimentaire</a>.
+                </p>
+
+                <div style="width: 30vw">
+                    <video controls autoplay="true" muted loop>
+                        Vidéo de la conception propulseur & tour de lancement
+                        <source src="assets/vids/cad.mp4" type="video/mp4" defer>
+                    </video>
+                    <p>Modélisation propulseur & tour sur Autodesk Fusion (Avril 2025)</p>
+                </div>
             </div>
-        </div>
 
-        <div class="split">
-            <div style="width: 14vw">
-
-                <a href="assets/img/SH_mockup.jpg">
+            <div class="split">
+                <div style="width: 14vw">
                     <img src="assets/img/SH_mockup.jpg" defer>
-                </a>
-                <p>Maquette Super Heavy</p>
-            </div>
-            <div style="width: 14vw">
-                <a href="assets/img/SH_mockup_inside.jpg">
+                    <p>Maquette Super Heavy</p>
+                </div>
+                <div style="width: 14vw">
                     <img src="assets/img/SH_mockup_inside.jpg" defer>
-                </a>
-                <p>Intérieur de la maquette</p>
+                    <p>Intérieur de la maquette</p>
+                </div>
+
+                <p>
+                    La maquette de Super Heavy comporte une batterie 15V et alimente une ESP32 (carte logique programmable, avec communications sans-fils) ainsi que deux centrales inertielles MPU-6050.<br />
+                    Pour faire rentrer le propulseur dans mon imprimante 3D, je le découpe en 3 morceaux : <br />
+                    - La partie haute actionnera les grilles aérodynamiques, mais est vide pour l'instant<br />
+                    - La partie centrale, contient les cartes logiques/capteurs<br />
+                    - La partie basse, où repose la batterie<br />
+                    <br />
+                    Le tout s'assemble uniquement avec des vis, mais se fragilise avec les acrobaties exécutées par le robot FANUC.<br />
+                    La partie centrale proche du centre de gravité possède aussi l'attache pour le monter sur le robot, faite aussi sur mesure.
+                </p>
             </div>
 
-            <p>
-                La maquette de Super Heavy comporte une batterie 15V et alimente une ESP32 (carte logique programmable, avec communications sans-fils) ainsi que deux centrales inertielles MPU-6050.<br />
-                Pour faire rentrer le propulseur dans mon imprimante 3D, je le découpe en 3 morceaux : <br />
-                - La partie haute actionnera les grilles aérodynamiques, mais est vide pour l'instant<br />
-                - La partie centrale, contient les cartes logiques/capteurs<br />
-                - La partie basse, où repose la batterie<br />
-                <br />
-                Le tout s'assemble uniquement avec des vis, mais se fragilise avec les acrobaties exécutées par le robot FANUC.<br />
-                La partie centrale proche du centre de gravité possède aussi l'attache pour le monter sur le robot, faite aussi sur mesure.
-            </p>
+
+            <br />
+            <hr>
+            <h2>Contrôle Optimal</h2>
+
+            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
+            <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
+            <p>Cette partie est encore sujet de réflexions.</p>
+
+            <br />
+            <hr>
         </div>
 
-
-        <br />
-        <hr>
-        <h2>Contrôle Optimal</h2>
-
-        <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
-        <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
-        <p>Cette partie est encore sujet de réflexions.</p>
-
-        <br />
-        <hr>
-    </div>
-
-    <!--Présentation non détaillée-->
+        <!--Présentation non détaillée-->
         <div class="presentation plainPresentation showPres">
-        <h2>Description</h2>
+            <h2>Description</h2>
 
-        <p>La robotique étant un domaine très large, j'ai proposé en projet d'étude un sujet d'aérospatiale avec une approche robotique, qui fait intervenir passion, théorie, et pratique.<br />Mon sujet a été accepté par M.FOFI, mon professeur encadrant, en une vingtaine de minutes.</p>
+            <p>La robotique étant un domaine très large, j'ai proposé en projet d'étude un sujet d'aérospatiale avec une approche robotique, qui fait intervenir passion, théorie, et pratique.<br />Mon sujet a été accepté par M.FOFI, mon professeur encadrant, en une vingtaine de minutes.</p>
 
-        <div class="split">
-            <p>
-                L'objectif est de <u>reproduire le retour d'un propulseur de fusée</u>, Super Heavy.
-                Une chose aussi compliquée à expliquer bloquée derrière un écran d'ordinateur est plus que dommage, et empêche de vulgariser la science au grand public, c'est une des raisons de pourquoi je veux reproduire ma simulation à échelle humaine dans une cellule robotisée.
-                Et enfin, utiliser cette reproduction physique pour mettre en place une simulation <u>"hardware-in-the-loop"</u>, très utilisés dans les industries spatiales, pour encore plus de réalisme et robustesse dans ma solution.
-                <br /><br />
-                Lors du retour, le propulseur : <br />
-                - Redescend à grand vitesse (jusqu'à 4 fois la vitesse du son)<br />
-                - Se rallume pour freiner <br />
-                - Se pose sur les deux bras montés sur la tour de lancement.<br />
-                <br />
-                Mon étude commence à 40km d'altitude, avant que l'atmosphère ne soit assez importante.<br />
-                Actuellement, ma principale occupation est de m'assurer que mon projet est faisable, je m'occupe donc de faire fonctionner et coordonner toutes les parties du projet : un proof-of-concept. Je m'appuierais à la précision et aux très fins détails une fois tout cadencé.
-            </p>
-            <div style="width: 40rem">
-                <video controls autoplay="true" muted loop style="aspect-ratio: 16/9;">
-                    Vidéo de la conception propulseur & tour de lancement
-                    <source src="assets/vids/SH_ift5_catch.mp4" type="video/mp4">
-                </video>
+            <div class="split">
                 <p>
-                    Essai n°5 Starship/Super Heavy, par SpaceX <br />
-                    Le propulseur exécute une rentrée atmosphérique et fait une dernière manoeuvre, moteurs allumés, pour se faire attraper
+                    L'objectif est de <u>reproduire le retour d'un propulseur de fusée</u>, Super Heavy.
+                    Une chose aussi compliquée à expliquer bloquée derrière un écran d'ordinateur est plus que dommage, et empêche de vulgariser la science au grand public, c'est une des raisons de pourquoi je veux reproduire ma simulation à échelle humaine dans une cellule robotisée.
+                    Et enfin, utiliser cette reproduction physique pour mettre en place une simulation <u>"hardware-in-the-loop"</u>, très utilisés dans les industries spatiales, pour encore plus de réalisme et robustesse dans ma solution.
+                    <br /><br />
+                    Lors du retour, le propulseur : <br />
+                    - Redescend à grand vitesse (jusqu'à 4 fois la vitesse du son)<br />
+                    - Se rallume pour freiner <br />
+                    - Se pose sur les deux bras montés sur la tour de lancement.<br />
+                    <br />
+                    Mon étude commence à 40km d'altitude, avant que l'atmosphère ne soit assez importante.<br />
+                    Actuellement, ma principale occupation est de m'assurer que mon projet est faisable, je m'occupe donc de faire fonctionner et coordonner toutes les parties du projet : un proof-of-concept. Je m'appuierais à la précision et aux très fins détails une fois tout cadencé.
+                </p>
+                <div style="width: 40rem">
+                    <video controls autoplay="true" muted loop style="aspect-ratio: 16/9;">
+                        Vidéo de la conception propulseur & tour de lancement
+                        <source src="assets/vids/SH_ift5_catch.mp4" type="video/mp4">
+                    </video>
+                    <p>
+                        Essai n°5 Starship/Super Heavy, par SpaceX <br />
+                        Le propulseur exécute une rentrée atmosphérique et fait une dernière manoeuvre, moteurs allumés, pour se faire attraper
+                    </p>
+                </div>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Simulation</h2>
+
+            <p>J'utilise une technologie de simulation très utilisé aujourd'hui pour la recherche et l'IA, notamment chez Nvidia ou Google : <a href="https://mujoco.org/" target="_blank">MuJoCo</a>.</p>
+
+            <div class="split">
+                <div style="width: 35vw">
+                    <a href="assets/img/proxsim.png">
+                        <img src="assets/img/proxsim.png" style="aspect-ratio: 16/9;">
+                    </a>
+                    <p>
+                        ProxSim, logiciel de simulation/contrôle à distance. <br />
+                        Interface en développement
+                    </p>
+                </div>
+                <p>
+                    Voici mon environnement de simulation, avec un modèle simpliste de Super Heavy. Je peux sauvegarder la télémétrie, ai implémenté mon contrôleur de vol et une interface pour interagir avec la simulation et avec les autres composants de mon projet (maquettes, cellule robotisée FANUC). <br />
+                    Super Heavy pour l'instant se tient debout en tournant ses moteurs à droite ou à gauche à l'aide de simples calculs, <u>en attendant une théorie plus développée</u>. Cet objectif fût surtout un bon prétexte pour mettre en place une <u>simulation contrôlée, stable et réaliste</u>.<br />
+                    <br />
+                    On peux voir au centre de l'écran, l'environnement de simulation avec le propulseur. Et sur le reste de l'écran, une interface me permet de mettre en pause, relancer la simulation, modifier la vue, modifier des paramètres et relever la télémétrie importante.
+                    Je peux aussi depuis cette interface contrôler la cellule robotisée FANUC par réseau, pour avoir sa position ou le faire bouger.
                 </p>
             </div>
-        </div>
 
-        <br />
-        <hr>
-        <h2>Simulation</h2>
+            <br />
+            <hr>
+            <h2>Contrôle de la cellule robotisée</h2>
 
-        <p>J'utilise une technologie de simulation très utilisé aujourd'hui pour la recherche et l'IA, notamment chez Nvidia ou Google.</p>
-
-        <div class="split">
-            <div style="width: 35vw">
-                <a href="assets/img/proxsim.png">
-                    <img src="assets/img/proxsim.png" style="aspect-ratio: 16/9;">
-                </a>
+            <p>
+                Un projet d'étude est aussi une excuse pour apprendre en pratiquant. Voulant participer aux Olympiades FANUC cette année, j'ai demandé dès la proposition de mon projet d'utiliser un bras FANUC. Pour l'échelle de mon projet, le plus gros robot disponible à l'école m'a été accordé!<br />
+                L'objectif avec cette cellule robotisée est de recréer le plus fidèlement possible, <u>en temps réel</u>, ma simulation. Une grande précision est nécéssaire pour ne pas fausser la lecture des capteurs montés dans les maquettes.
+            </p>
+            <div class="split">
                 <p>
-                    ProxSim, logiciel de simulation/contrôle à distance. <br />
-                    Interface en développement
+                    Je peux donner au robot la position et la vitesse du propulseur à intervalles régulière.<br />
+                    Un début fût d'utiliser la librairie <a href="https://github.com/torayeff/fanucpy" target="_blank">Fanucpy de Agajan Torayev</a>, et le tout fonctionnait très bien après adaptation pour mon robot spécifiquement. Mais le mouvement était saccadé. Evidemment, un objet tombant du ciel ne prend pas de pause...
+                    J'ai donc modifié la librarie spécifiquement pour mon utilisation.<br />
+                    Résultats ? Le robot <u>reproduit à l'identique</u> ma simulation.<br />
+                    La vidéo présente le robot, recevant des points aléatoires, avec des instructions de vitesses aléatoires. Il s'arrête s'il a atteint sa dernière cible, et les mouvements sont parfois saccadés à cause d'un petit problème de calcul, réglé sur papier.
                 </p>
+                <div style="width: 20vw">
+                    <video controls autoplay="true" muted loop>
+                        Vidéo de mouvement "fluide" par le bras FANUC
+                        <source src="assets/vids/FANUC_spline_out.mp4" type="video/mp4">
+                    </video>
+                    <p>Actuation à distance du robot FANUC<br />(Vitesse x2)</p>
+                </div>
             </div>
+
+            <br />
+            <hr>
+            <h2>Conception et fonctionnement des maquettes</h2>
+
             <p>
-                Voici mon environnement de simulation, avec un modèle simpliste de Super Heavy. Je peux sauvegarder la télémétrie, ai implémenté mon contrôleur de vol et une interface pour interagir avec la simulation et avec les autres composants de mon projet (maquettes, cellule robotisée FANUC). <br />
-                Super Heavy pour l'instant se tient debout en tournant ses moteurs à droite ou à gauche à l'aide de simples calculs, <u>en attendant une théorie plus développée</u>. Cet objectif fût surtout un bon prétexte pour mettre en place une <u>simulation contrôlée, stable et réaliste</u>.<br />
-                <br />
-                On peux voir au centre de l'écran, l'environnement de simulation avec le propulseur. Et sur le reste de l'écran, une interface me permet de mettre en pause, relancer la simulation, modifier la vue, modifier des paramètres et relever la télémétrie importante.
-                Je peux aussi depuis cette interface contrôler la cellule robotisée FANUC par réseau, pour avoir sa position ou le faire bouger.
-            </p>
-        </div>
-
-        <br />
-        <hr>
-        <h2>Contrôle de la cellule robotisée</h2>
-
-        <p>
-            Un projet d'étude est aussi une excuse pour apprendre en pratiquant. Voulant participer aux Olympiades FANUC cette année, j'ai demandé dès la proposition de mon projet d'utiliser un bras FANUC. Pour l'échelle de mon projet, le plus gros robot disponible à l'école m'a été accordé!<br />
-            L'objectif avec cette cellule robotisée est de recréer le plus fidèlement possible, <u>en temps réel</u>, ma simulation. Une grande précision est nécéssaire pour ne pas fausser la lecture des capteurs montés dans les maquettes.
-        </p>
-        <div class="split">
-            <p>
-                Je peux donner au robot la position et la vitesse du propulseur à intervalles régulière.<br />
-                Un début fût d'utiliser la librairie <a href="https://github.com/torayeff/fanucpy">Fanucpy de Agajan Torayev</a>, et le tout fonctionnait très bien après adaptation pour mon robot spécifiquement. Mais le mouvement était saccadé. Evidemment, un objet tombant du ciel ne prend pas de pause...
-                J'ai donc modifié la librarie spécifiquement pour mon utilisation.<br />
-                Résultats ? Le robot <u>reproduit à l'identique</u> ma simulation.<br />
-                La vidéo présente le robot, recevant des points aléatoires, avec des instructions de vitesses aléatoires. Il s'arrête s'il a atteint sa dernière cible, et les mouvements sont parfois saccadés à cause d'un petit problème de calcul, réglé sur papier.
-            </p>
-            <div style="width: 20vw">
-                <video controls autoplay="true" muted loop>
-                    Vidéo de mouvement "fluide" par le bras FANUC
-                    <source src="assets/vids/FANUC_spline_out.mp4" type="video/mp4">
-                </video>
-                <p>Actuation à distance du robot FANUC<br />(Vitesse x2)</p>
-            </div>
-        </div>
-
-        <br />
-        <hr>
-        <h2>Conception et fonctionnement des maquettes</h2>
-
-        <p>
-            Je dois donc modéliser puis imprimer en plastique un propulseur et une tour, fidèlement au vrai modèles, à l'échelle ~1:144. Ce choix d'échelle assure d'avoir un bon visuel sur la dernière manoeuvre dans la cellule robotisée. <br />
-            Ce fut mon premier projet de modélisation 3D, et ma première occasion d'utiliser une imprimante 3D.
-        </p>
-
-        <div class="split">
-            <p>
-                En utilisant différentes informations officielles de SpaceX et des centaines de clichés de journalistes/reporters, je modèlise le propulseur sur Autodesk Fusion. <br />
-                Le vrai propulseur fait 69 mètres de hauteur pour 9 mètres de diamètres, ma maquette fait donc 50 centimètres de haut, assez large pour contenir ma carte logique.<br />
-                Vous pouvez apercevoir ces modélisation dans <a href="https://www.lucas-david-ry.com/SHCatch-MissionControl/">cet outil de visualisation rudimentaire</a>.
+                Je dois donc modéliser puis imprimer en plastique un propulseur et une tour, fidèlement au vrai modèles, à l'échelle ~1:144. Ce choix d'échelle assure d'avoir un bon visuel sur la dernière manoeuvre dans la cellule robotisée. <br />
+                Ce fut mon premier projet de modélisation 3D, et ma première occasion d'utiliser une imprimante 3D.
             </p>
 
-            <div style="width: 30vw">
-                <video controls autoplay="true" muted loop>
-                    Vidéo de la conception propulseur & tour de lancement
-                    <source src="assets/vids/cad.mp4" type="video/mp4" defer>
-                </video>
-                <p>Modélisation propulseur & tour sur Autodesk Fusion (Avril 2025)</p>
+            <div class="split">
+                <p>
+                    En utilisant différentes informations officielles de SpaceX et des centaines de clichés de journalistes/reporters, je modèlise le propulseur sur Autodesk Fusion. <br />
+                    Le vrai propulseur fait 69 mètres de hauteur pour 9 mètres de diamètres, ma maquette fait donc 50 centimètres de haut, assez large pour contenir ma carte logique.<br />
+                    Vous pouvez apercevoir ces modélisation dans <a href="https://www.lucas-david-ry.com/SHCatch-MissionControl/" target="_blank">cet outil de visualisation rudimentaire</a>.
+                </p>
+
+                <div style="width: 30vw">
+                    <video controls autoplay="true" muted loop>
+                        Vidéo de la conception propulseur & tour de lancement
+                        <source src="assets/vids/cad.mp4" type="video/mp4" defer>
+                    </video>
+                    <p>Modélisation propulseur & tour sur Autodesk Fusion (Avril 2025)</p>
+                </div>
             </div>
-        </div>
 
-        <div class="split">
-            <div style="width: 14vw">
-
-                <a href="assets/img/SH_mockup.jpg">
+            <div class="split">
+                <div style="width: 14vw">
                     <img src="assets/img/SH_mockup.jpg" defer>
-                </a>
-                <p>Maquette Super Heavy</p>
-            </div>
-            <div style="width: 14vw">
-                <a href="assets/img/SH_mockup_inside.jpg">
+                    <p>Maquette Super Heavy</p>
+                </div>
+                <div style="width: 14vw">
                     <img src="assets/img/SH_mockup_inside.jpg" defer>
-                </a>
-                <p>Intérieur de la maquette</p>
+                    <p>Intérieur de la maquette</p>
+                </div>
+
+                <p>
+                    La maquette de Super Heavy comporte une batterie et alimente une carte logique programmable ainsi que deux capteurs de mouvement.<br />
+                    Pour faire rentrer le propulseur dans mon imprimante 3D, je le découpe en 3 morceaux : <br />
+                    - La partie haute actionnera les grilles aérodynamiques, mais est vide pour l'instant<br />
+                    - La partie centrale, contient les cartes logiques/capteurs<br />
+                    - La partie basse, où repose la batterie<br />
+                    <br />
+                    Le tout s'assemble uniquement avec des vis, mais se fragilise avec les acrobaties exécutées par le robot FANUC.<br />
+                    La partie centrale proche du centre de gravité possède aussi l'attache pour le monter sur le robot, faite aussi sur mesure.<br />
+                    Toutes les communications se font sans fil avec mon ordinateur.
+                </p>
             </div>
 
-            <p>
-                La maquette de Super Heavy comporte une batterie et alimente une carte logique programmable ainsi que deux capteurs de mouvement.<br />
-                Pour faire rentrer le propulseur dans mon imprimante 3D, je le découpe en 3 morceaux : <br />
-                - La partie haute actionnera les grilles aérodynamiques, mais est vide pour l'instant<br />
-                - La partie centrale, contient les cartes logiques/capteurs<br />
-                - La partie basse, où repose la batterie<br />
-                <br />
-                Le tout s'assemble uniquement avec des vis, mais se fragilise avec les acrobaties exécutées par le robot FANUC.<br />
-                La partie centrale proche du centre de gravité possède aussi l'attache pour le monter sur le robot, faite aussi sur mesure.<br />
-                Toutes les communications se font sans fil avec mon ordinateur.
-            </p>
+            <br />
+            <hr>
+
+            <h2>Optimal Control</h2>
+
+            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
+            <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
+            <p>Cette partie est encore sujet de réflexions.</p>
+
+            <br />
+            <hr>
         </div>
 
-        <br />
-        <hr>
+        <footer style="margin: 5vh 5vw">
+            <span>
+                <span>
+                    <img src="assets/img/ube.png" style="height: 100px;">
+                    <img src="assets/img/polytech.png" style="height: 100px;">
+                </span>
+                <p style="direction: ltr;">Ce projet est dans le cadre d'études d'ingénierie robotique au sein de Polytech Dijon, qui mettent à disposition salles, matériel, et techniciens.</p>
+            </span>
+
+            <p><a href="./index.html">Retourner sur mon profil</a></p>
+        </footer>
+
     </div>
 
-    <footer style="margin: 5vh 5vw">
-        <span>
+    <div id="EN">
+        <header>
+            <h1 style="margin-top: 50px;">Super Heavy Catch - Flagship project</h1>
+            <h5>By DAVID Lucas</h5>
+            <div class="detailsSwitch">
+                <button class="selectPresType selectedPresType" onclick="setPresType('simple')" data-i18n="toggleDetails.simple"></button>
+                <button class="selectPresType" onclick="setPresType('complete')" data-i18n="toggleDetails.complete"></button>
+            </div>
+            <p>Last update: September 16th 2025</p>
+            <br />
+        </header>
+
+        <!--Présentation détaillée-->
+        <div class="presentation detailedPresentation">
+            <h2>Description (US Detailed)</h2>
+
+            <p>Robotics having a wide range of applications, I applied for a study project about spaceflight gathering my passion, advanced theoretical fields, and real-world applications.<br />My project had been accepted by M.FOFI, my supervising professor, within mere minutes.</p>
+
+            <div class="split">
+                <p>
+                    The objective is to reproduce the <u>return of the Super Heavy rocket booster back to its launch site</u>.
+                    Keeping this in a simulation (while Robotics are for real-world applications) is both a bummer for an academic project (limiting myself this close) and a bummer to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
+                    And then going even further by making this a <u>"hardware-in-the-loop" simulation</u>, the goal is to use real sensors and actuators for the simulation : making the mockup believe it is really flying. These type of simulation are widely used in aerospace industries, offering me experience and validating my solutions' robustness in limited real world scenarios (I'm not working on a real subscaled rocket, at least for now).
+                    <br /><br />
+                    During its return, the booster : <br />
+                    - Descends at high speeds (up to Mach4 depending on air density)<br />
+                    - Lights up sequentially 13 engines to decelerate (if all engines healthy, else one or two won't light up again) <br />
+                    - Down to 3 engines, execute a final maneuver to rests itself on two arms mounted on the launch tower (with slight tolerences on speed and orientation).<br />
+                    <br />
+                    My study's context starts at 40km altitude, with the booster properly oriented before atmospheric reentry, on a ballistic trajectory a small distance short of the launch site.<br />
+                    I've achieved a proof-of-concept, making all the parts work and properly communicate with minimum viable solutions. I'm now into making it all more efficient, apply stress tests and researches about the final controller. (As well as presenting my project to a few visitors).
+                </p>
+                <div style="width: 40rem">
+                    <video controls autoplay="true" muted loop style="aspect-ratio: 16/9;">
+                        5th Flight Test of the Starship/Super Heavy system, featuring the first booster catch, the maneuver I'm working to remake.
+                        <source src="assets/vids/SH_ift5_catch.mp4" type="video/mp4">
+                    </video>
+                    <p>
+                        5th Flight Test of Starship/Super Heavy, by SpaceX <br />
+                        The booster reenters the atmosphere and gets caught (for the first time)
+                    </p>
+                </div>
+            </div>
+
+            <br />
+            <hr>
+
+            <h2>Simulation</h2>
+
+            <p>I use a simulation environment widely used in research and AI, notably at Google Deepmind and Nvidia : <a href="https://mujoco.org/" target="_blank">MuJoCo</a>. This is a simulated world where I rotate the engines and apply variable thrust on each engine.</p>
+
+            <div class="split">
+                <div style="width: 35vw">
+                    <img src="assets/img/proxsim.png" style="aspect-ratio: 16/9;">
+                    <p>
+                        ProxSim, simulation and remote control software.<br />
+                        UI content is in progress
+                    </p>
+                </div>
+                <p>The booster can maneuver by rotating "all" of its engines, so my goal is to say how each engines should be oriented (2 degrees of freedom) and how much thrust they need to deliver.
+                    Here is my simulation software (ProxSim), with a simple model of Super Heavy V2. I can follow/save telemetry and implemented a small PID flight controller (allowing the booster to stay upright at all times).
+                    ProxSim is also able to communicate with my mockups (remote monitor, and control) as well as the FANUC arm (move, current positions and start custom KAREL/TP programs).
+                    Managing this simulation environment was my first steps into this project as it is crucial and complex with many parameters and a need for stability. Gimballing cylinders on which I apply multiple Megenewtons of force and keeping them still was a source of simulation instability for example, but everything is now corrected.<br />
+                    <br />
+                    You can see in the user interface that I can pause, reset the simulation, follow real-time telemetry with graphs and simulation's health, change the scene's cameras, edit initial position of the booster at the start of the simulation, as well as remote manual control of the FANUC, and a custom spline program I will detail more in this page.
+                </p>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Robotic cell control</h2>
+
+            <div class="split">
+                <p>My future job will most likely be in manufacturing, so I need experience with real industrial machines, and my school has quite a few. I was given the green light to use the biggest of the school : the FANUC M-10iA-12S with a R-30iA Mate controller.<br />
+                    The goal of the FANUC is to perfectly mimic in real time, a smooth movement that happens into my simulation. It needs precision & reactivity as deviations might pile up into my sensors readings, making their readings fundamentally wrong.<br />
+                    <br />
+                    The only data I have for it are position and speed of the booster at 50Hz, that I'm able to send via network socket messaging.<br />
+                    I started using the <a href="https://github.com/torayeff/fanucpy" target="_blank">Fanucpy library from Agajan Torayev</a> (KAREL programs), allowing remote commands on the robot by the network, and it worked great after adapting it to my controller (the library is made for the R-30i<strong>B</strong> controller). But continuous real-time movement were not possible :<br />
+
+                    This library works as follows : a KAREL program uses one of the controller's servers to receive messages and send responses. To move, the KAREL program would fill a few registers (with position, velocity and options) and run a TP program using these registers.
+                    However, once a move command was sent, the KAREL program stopped until the TP move program has been completed. Making the TP program use SKIP options would interrupt the robot's movement and resume the KAREL program, still making the robot stop.
+                    So I made my own extension (the Spline program) : When started, I start a TP program that wait for a digital output to switch, and would then iterate on position registers filled with intermediate positions (between current position, and command's target). When the KAREL program receives a new target position, it calculates the Hermit curve and stores small steps into position registers, and signals the change by switching a digital output the TP program was waiting for.
+                    A rocket booster falling off the sky do not take any coffee break, and so my program doesn't either !<br />
+                    This is an engineer approach, that differs from buying the FANUC "Dynamic Path Modification" option at an undisclosed price.
+
+                    So I edited his library to make my use case work, and will be shared online as open-source in the near future.<br />
+                    This chapter ends with my robotic arm <u>recreating the trajectories</u> of my simulation.<br />
+                    This video shows the robot running my spline program to reach random points of a plane, at various speeds. It stops when it reached its target, and redirects into a curve if a new target in sent before reaching the previous one.
+                    The sometimes blocky movements are from a known issue, with a known solution, currently being fixed (I first implemented Bezier curves instead, and the middle control point was greatly simplified for prototyping, Hermite curves doesn't need a weird control point).
+                </p>
+                <div style="width: 20vw">
+                    <video controls autoplay="true" muted loop>
+                        Video of my Spline program running on the FANUC
+                        <source src="assets/vids/FANUC_spline_out.mp4" type="video/mp4">
+                    </video>
+                    <p>FANUC arm running my Spline program, with my Super Heavy V2 mockup<br />(Vitesse x2)</p>
+                </div>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Desiging the mockups</h2>
+
+            <div class="split">
+                <p>I need to model and 3D print a rocket booster and a tower, at a ~1:144 scale (so the booster is ~50cm / ~20 inch tall), and to showcase my project seriously in front of any audiences, my mockups need to look polished and detailed compared to the real booster.<br />
+                    The model you see in the video is my first 3D CAD project, but it's a "V2" design. I'm finishing design on a whole redesigned "V3" bringing more details, grid fins actuators, and a design made with much more CAD & 3D printing experience.<br />
+                    <br />
+                    Using SpaceX official information and hundreds of pictures/videos made by local reporters, I'm making my design as accurate to the real booster as possible.<br />
+                    The scale I settled on is big enough to hold usual prototyping hardware for compute, actuation and power.
+                </p>
+                <div style="width: 30vw">
+                    <video controls autoplay="true" muted loop>
+                        Video of the CAD models of the booster V2 and launch tower (as of April 2025)
+                        <source src="assets/vids/cad.mp4" type="video/mp4" defer>
+                    </video>
+                    <p>Designs of the V2 booster and tower, made on Autodesk Fusion (April 2025)</p>
+                </div>
+                <div style="width: 15vw">
+                    <img src="assets/img/superheavy-versions2_3.png" alt="Versions 2 and 3 of Super Heavy">
+                    <p>Official renders comparing Super Heavy Version 2 and 3</p>
+                </div>
+            </div>
+
+            <div class="split">
+                <div style="width: 14vw">
+                    <img src="assets/img/SH_mockup.jpg" defer>
+                    <p>Super Heavy mockup</p>
+                </div>
+                <div style="width: 14vw">
+                    <img src="assets/img/SH_mockup_inside.jpg" defer>
+                    <p>Mockup interior</p>
+                </div>
+
+                <p>My Super Heavy mockup holds a 12V battery that powers an ESP32 programmable board, two 6-axis accelerometers and 3 servo-motors.<br />
+                    The booster is made in four parts : <br />
+                    - The hot stage ring, very small, to close the top<br />
+                    - The grid fins area, where the grid fins are actuated and servos mounted<br />
+                    - The middle part, holding the breadboard and the two aligned accelerometers<br />
+                    - The lower part, where is situated the battery<br />
+                    <br />
+                    Everything locks itself with custom "twist hooks" with stable positions, as the previous version titghened with screws was getting loose with all the acrobatics done on the FANUC. It is not yet prited, but this locking mechanism is promissing, with multiple redundency points according to the pieces masses, and tolerences playing in favor of the locking.<br />
+                    The middle parts have the attach point for the FANUC, as it is the nearest to the gravity/pressure center of the real booster, but the bottom bettery part is by far the heaviest. <br />
+                    All communications to/from the mockups are wireless, via WiFi.
+                </p>
+            </div>
+
+
+            <br />
+            <hr>
+            <h2>Optimal Control</h2>
+
+            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
+            <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
+            <p>Cette partie est encore sujet de réflexions.</p>
+
+            <br />
+            <hr>
+        </div>
+
+        <!--Présentation non détaillée-->
+        <div class="presentation plainPresentation showPres">
+            <h2>Description</h2>
+
+            <p>Robotics having a wide range of applications, I applied for a study project about spaceflight gathering my passion, advanced theoretical fields, and real-world applications.<br />My project had been accepted by M.FOFI, my supervising professor, within mere minutes.</p>
+
+            <div class="split">
+                <p>
+                    The objective is to reproduce the <u>return of the Super Heavy rocket booster back to its launch site</u>.
+                    Keeping this in a simulation (while Robotics are for real-world applications) is both a bummer for an academic project (limiting myself this close) and a bummer to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
+                    And then going even further by making this a <u>"hardware-in-the-loop" simulation</u>, widely used in aerospace industries, offering me experience and validating my solutions' robustness in limited real world scenarios.
+                    <br /><br />
+                    During its return, the booster : <br />
+                    - Descends at high speeds (up to 4 times the speed of sound)<br />
+                    - Lights up 13 engines to decelerate <br />
+                    - Down to 3 engines, rests itself on two arms mounted on the launch tower.<br />
+                    <br />
+                    My study's context starts at 40km altitude.<br />
+                    I've achieved a proof-of-concept, making all the parts work and properly communicate with minimum viable solutions. I'm now into making it all more efficient, apply stress tests and researches about the final controller.
+                </p>
+                <div style="width: 40rem">
+                    <video controls autoplay="true" muted loop style="aspect-ratio: 16/9;">
+                        5th Flight Test of the Starship/Super Heavy system, featuring the first booster catch, the maneuver I'm working to remake.
+                        <source src="assets/vids/SH_ift5_catch.mp4" type="video/mp4">
+                    </video>
+                    <p>
+                        5th Flight Test of Starship/Super Heavy, by SpaceX <br />
+                        The booster reenters the atmosphere and gets caught (for the first time)
+                    </p>
+                </div>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Simulation</h2>
+
+            <p>I use a simulation environment widely used in research and AI, notably at Google Deepmind and Nvidia : <a href="https://mujoco.org/" target="_blank">MuJoCo</a>.</p>
+
+            <div class="split">
+                <div style="width: 35vw">
+                    <img src="assets/img/proxsim.png" style="aspect-ratio: 16/9;">
+                    <p>
+                        ProxSim, simulation and remote control software.<br />
+                        UI content is in progress
+                    </p>
+                </div>
+                <p>Here is my simulation software, with a simple model of Super Heavy V2. I can follow/save telemetry and implemented a small flight controller (allowing the booster to stay upright by rotating its engines).
+                    It also contains communications with my mockups as well as the FANUC arm.
+                    Managing this simulation environment was my first steps into this project as it is crucial and complex with many parameters and a need for stability.<br />
+                    <br />
+                    You can see in the user interface that I can pause, reset the simulation, follow real-time telemetry and simulation's health, change the scene's camera, edit initial position of the booster, as well as remote manual control of the FANUC, and a custom spline program I will detail more.
+                </p>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Robotic cell control</h2>
+
+            <div class="split">
+                <p>My future job will most likely be in manufacturing, so I need experience with real industrial machines, and my school has quite a few. I was given the green light to use the biggest of the school : the FANUC M-10iA-12S with a R-30iA Mate controller.<br />
+                    The goal of the FANUC is to perfectly mimic in real time, a smooth movement that happens into my simulation. It needs precision & reactivity as deviations might pile up into my sensors readings, making them useless.<br />
+                    <br />
+                    The only data I have for it are position and speed of the booster at 50Hz.<br />
+                    I started using the <a href="https://github.com/torayeff/fanucpy" target="_blank">Fanucpy library from Agajan Torayev</a> (KAREL programs), allowing remote commands on the robot by the network, and it worked great after adapting it to my controller. But continuous movement were not possible as it would stop at every point. A rocket booster falling off the sky do not take any coffee break...
+                    So I edited his library to make my use case work, and will be shared online as open-source in the near future.<br />
+                    This chapter ends with my robotic arm <u>recreating the trajectories</u> of my simulation.<br />
+                    This video shows the robot running my spline program to reach random points of a plane, at various speeds. It stops when it reached its target, and redirects into a curve if a new target in sent before reaching the previous one.
+                    The sometimes blocky movements are from a known issue, with a known solution, currently being fixed.
+                </p>
+                <div style="width: 20vw">
+                    <video controls autoplay="true" muted loop>
+                        Vidéo de mouvement "fluide" par le bras FANUC
+                        <source src="assets/vids/FANUC_spline_out.mp4" type="video/mp4">
+                    </video>
+                    <p>FANUC arm running my spline program (receive targets on a plane and goes to it smoothly)<br />(Vitesse x2)</p>
+                </div>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Designing the mockups</h2>
+
+            <div class="split">
+                <p>I need to model and 3D print a rocket booster and a tower, at a ~1:144 scale (so the booster is ~50cm / ~20 inch tall), and to showcase my project seriously, my mockups need to look polished and detailed.<br />
+                    The model you see in the video is my first 3D CAD project, but it's a "V2" design. I'm finishing design on the "V3" bringing more details, actuators, and a design made with much more CAD & 3D printing experience.<br />
+                    <br />
+                    Using SpaceX official information and hundreds of pictures/videos made by local reporters, I'm making my design as accurate to the real booster as possible.<br />
+                    The scale I settled on is big enough to hold usual prototyping hardware for compute, actuation and power.
+                </p>
+                <div style="width: 30vw">
+                    <video controls autoplay="true" muted loop>
+                        Video of the CAD models of the booster V2 and launch tower (as of April 2025)
+                        <source src="assets/vids/cad.mp4" type="video/mp4" defer>
+                    </video>
+                    <p>Designs of the V2 booster and tower, made on Autodesk Fusion (April 2025)</p>
+                </div>
+                <div style="width: 15vw">
+                    <img src="assets/img/superheavy-versions2_3.png" alt="Versions 2 and 3 of Super Heavy">
+                    <p>Official renders comparing Super Heavy Version 2 and 3</p>
+                </div>
+            </div>
+
+            <div class="split">
+                <div style="width: 14vw">
+                    <img src="assets/img/SH_mockup.jpg" defer>
+                    <p>Super Heavy mockup</p>
+                </div>
+                <div style="width: 14vw">
+                    <img src="assets/img/SH_mockup_inside.jpg" defer>
+                    <p>Mockup interior</p>
+                </div>
+
+                <p>My Super Heavy mockup holds a battery that powers a programmable board, 2 movement sensors and 3 motors.<br />
+                    The booster is made in four parts : <br />
+                    - The hot stage ring, very small, to close the top<br />
+                    - The grid fins area, where the grid fins are actuated<br />
+                    - The middle part, holding all the logic boards<br />
+                    - The lower part, where is situated the battery<br />
+                    <br />
+                    Everything locks itself with a few printed hooks and screws, as the previous version was getting loose with all the acrobatics done on the FANUC. <br />
+                    The middle parts have the attach point for the FANUC, as it is the nearest to the gravity/pressure center of the real booster. <br />
+                    All communications to/from the mockups are wireless.
+                </p>
+            </div>
+
+            <br />
+            <hr>
+            <h2>Optimal Control</h2>
+
+            <p>Usual easy controllers are not enough for my flight computer : They assume many things that do not apply here. So I need to pivot to a new control approach : prediction. Given the mathematical model of my booster and tower, I can predict how it will turn/fall naturally, and deduce the optimal actuations (optimal control) with the "same" model.<br />
+                However, finding the "optimal" solution is not trivial, and thus I need to apply to my project an algorithm far beyond my studies, <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">a research paper about how to make non-trivial optimization problems become trivial (by Lars Blackmore and Behçet Açikmese)</a><br />
+                This is not part of the "proof-of-concept" that I've developed, but it's a need to make it all work. I should be starting to work on this is a few weeks.
+            </p>
+
+            <br />
+            <hr>
+        </div>
+
+        <footer style="margin: 5vh 5vw">
             <span>
-                <img src="assets/img/ube.png" style="height: 100px;">
-                <img src="assets/img/polytech.png" style="height: 100px;">
+                <span>
+                    <img src="assets/img/ube.png" style="height: 100px;">
+                    <img src="assets/img/polytech.png" style="height: 100px;">
+                </span>
+                <p style="direction: ltr;">This project is part of my robotics engineering studies with Polytech Dijon, allowing the use of hardware, rooms, and technicians.</p>
             </span>
-            <p style="direction: ltr;">Ce projet est dans le cadre d'études d'ingénierie robotique au sein de Polytech Dijon, qui mettent à disposition salles, matériel, et techniciens.</p>
-        </span>
 
-        <p><a href="./index.html">Retourner sur mon profil</a></p>
-    </footer>
+            <p><a href="./index.html?lang=en">Back to my profile</a></p>
+        </footer>
+    </div>
 
+    <script src="language.js"></script>
     <script>
         const detailledDivs = document.querySelectorAll(".detailedPresentation");
         const plainDivs = document.querySelectorAll(".plainPresentation");
