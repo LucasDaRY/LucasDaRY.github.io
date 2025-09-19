@@ -19,7 +19,7 @@
     <meta property="og:type" content="article">
 
     <!-- X tags -->
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="player">
     <meta name="twitter:title" content="Flagship project : Super Heavy Catch">
     <meta name="twitter:creator" content="@LucasDaRiYv">
     <meta name="twitter:description" content="Student in Robotics, working on hardware-in-the-loop simulations, FANUC, and the Super Heavy Catch maneuver !">
@@ -203,9 +203,10 @@
             <hr>
             <h2>Contrôle Optimal</h2>
 
-            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
-            <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
-            <p>Cette partie est encore sujet de réflexions.</p>
+            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).
+                Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe. Je devrais commencer mon étude de ces papiers de recherche début octobre.<br />
+                Cette partie est encore sujet de réflexions.
+            </p>
 
             <br />
             <hr>
@@ -344,11 +345,12 @@
             <br />
             <hr>
 
-            <h2>Optimal Control</h2>
+            <h2>Contrôle Optimal</h2>
 
-            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
-            <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
-            <p>Cette partie est encore sujet de réflexions.</p>
+            <p>Les controlleurs PIDs (que j'utilise pour garder Super Heavy debout) ne sont pas adaptés pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du <a href="https://fr.wikipedia.org/wiki/Commande_pr%C3%A9dictive" target="_blank">contrôle prédictif (Model Predictive Control)</a>. Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).
+                Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe, autrement dit c'est pas possible. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe. Mon étude de ce papier de recherche devrais débuter début octobre.<br />
+                Cette partie est encore sujet de réflexions.
+            </p>
 
             <br />
             <hr>
@@ -387,7 +389,7 @@
 
         <!--Présentation détaillée-->
         <div class="presentation detailedPresentation">
-            <h2>Description (US Detailed)</h2>
+            <h2>Description</h2>
 
             <p>Robotics having a wide range of applications, I applied for a study project about spaceflight gathering my passion, advanced theoretical fields, and real-world applications.<br />My project had been accepted by M.FOFI, my supervising professor, within mere minutes.</p>
 
@@ -395,12 +397,13 @@
                 <p>
                     The objective is to reproduce the <u>return of the Super Heavy rocket booster back to its launch site</u>.
                     Keeping this in a simulation (while Robotics are for real-world applications) is both a bummer for an academic project (limiting myself this close) and a bummer to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
-                    And then going even further by making this a <u>"hardware-in-the-loop" simulation</u>, the goal is to use real sensors and actuators for the simulation : making the mockup believe it is really flying. These type of simulation are widely used in aerospace industries, offering me experience and validating my solutions' robustness in limited real world scenarios (I'm not working on a real subscaled rocket, at least for now).
+                    And then going even further by making this a <u>"hardware-in-the-loop" simulation</u>, the goal is to use real sensors and actuators for the simulation : making the mockup believe it is really flying. These type of simulation are widely used in aerospace industries, offering me experience and validating my solutions' robustness in limited real world scenarios (I'm not working on a real subscaled rocket with propulsion).
                     <br /><br />
                     During its return, the booster : <br />
                     - Descends at high speeds (up to Mach4 depending on air density)<br />
-                    - Lights up sequentially 13 engines to decelerate (if all engines healthy, else one or two won't light up again) <br />
+                    - Lights up sequentially 13 engines to decelerate <br />
                     - Down to 3 engines, execute a final maneuver to rests itself on two arms mounted on the launch tower (with slight tolerences on speed and orientation).<br />
+                    (This is what should happen in a perfect scenario, but engines might not light up, or fail, on which case the system makes its best)<br />
                     <br />
                     My study's context starts at 40km altitude, with the booster properly oriented before atmospheric reentry, on a ballistic trajectory a small distance short of the launch site.<br />
                     I've achieved a proof-of-concept, making all the parts work and properly communicate with minimum viable solutions. I'm now into making it all more efficient, apply stress tests and researches about the final controller. (As well as presenting my project to a few visitors).
@@ -432,10 +435,11 @@
                         UI content is in progress
                     </p>
                 </div>
-                <p>The booster can maneuver by rotating "all" of its engines, so my goal is to say how each engines should be oriented (2 degrees of freedom) and how much thrust they need to deliver.
+                <p>When the booster descends, it guides itself with the help of 3 (formerly 4) grid fins at the top of the structure, and by rotating them, gives the booster control of its direction and angle-of-attack.<br />
+                    When engines are lit, it can maneuver by rotating "all" of its engines, so my goal is to say how each engines should be oriented (2 degrees of freedom) and how much thrust they need to deliver.
                     Here is my simulation software (ProxSim), with a simple model of Super Heavy V2. I can follow/save telemetry and implemented a small PID flight controller (allowing the booster to stay upright at all times).
                     ProxSim is also able to communicate with my mockups (remote monitor, and control) as well as the FANUC arm (move, current positions and start custom KAREL/TP programs).
-                    Managing this simulation environment was my first steps into this project as it is crucial and complex with many parameters and a need for stability. Gimballing cylinders on which I apply multiple Megenewtons of force and keeping them still was a source of simulation instability for example, but everything is now corrected.<br />
+                    Managing this simulation environment was my first steps into this project as it is crucial and complex with many parameters and a need for stability. Gimballing cylinders on which I apply multiple Meganewtons of force and keeping them still was a source of simulation instability for example, but everything is now corrected.<br />
                     <br />
                     You can see in the user interface that I can pause, reset the simulation, follow real-time telemetry with graphs and simulation's health, change the scene's cameras, edit initial position of the booster at the start of the simulation, as well as remote manual control of the FANUC, and a custom spline program I will detail more in this page.
                 </p>
@@ -446,7 +450,7 @@
             <h2>Robotic cell control</h2>
 
             <div class="split">
-                <p>My future job will most likely be in manufacturing, so I need experience with real industrial machines, and my school has quite a few. I was given the green light to use the biggest of the school : the FANUC M-10iA-12S with a R-30iA Mate controller.<br />
+                <p>My future job will most likely be in manufacturing, so I need experience with real industrial machines, and my school has quite a few. I was given the green light to use the biggest of the school : the FANUC M-10iA with a R-30iA Mate controller.<br />
                     The goal of the FANUC is to perfectly mimic in real time, a smooth movement that happens into my simulation. It needs precision & reactivity as deviations might pile up into my sensors readings, making their readings fundamentally wrong.<br />
                     <br />
                     The only data I have for it are position and speed of the booster at 50Hz, that I'm able to send via network socket messaging.<br />
@@ -479,8 +483,10 @@
             <div class="split">
                 <p>I need to model and 3D print a rocket booster and a tower, at a ~1:144 scale (so the booster is ~50cm / ~20 inch tall), and to showcase my project seriously in front of any audiences, my mockups need to look polished and detailed compared to the real booster.<br />
                     The model you see in the video is my first 3D CAD project, but it's a "V2" design. I'm finishing design on a whole redesigned "V3" bringing more details, grid fins actuators, and a design made with much more CAD & 3D printing experience.<br />
+                    A mockup tower also need to be done, and early development of the tower main structure and catch arms "Chopsticks" are done. Making the tower is not a priority, as the electronics are already prepared, the tower will only be needed once the simulation is perfect.
                     <br />
                     Using SpaceX official information and hundreds of pictures/videos made by local reporters, I'm making my design as accurate to the real booster as possible.<br />
+                    While adding the rotating grid fins on the "V3" version, the real "V3" booster will get caught by the grid-fins. For my version, it is not a good idea to make sensible components structural, so the catch structure will be part of the main body, like in "V2".
                     The scale I settled on is big enough to hold usual prototyping hardware for compute, actuation and power.
                 </p>
                 <div style="width: 30vw">
@@ -524,9 +530,10 @@
             <hr>
             <h2>Optimal Control</h2>
 
-            <p>Les controlleurs PIDs ne sont pas assez robustes pour mon utilisation, car mon système est loin d'être linéaire, que ça soit en terme de contrôle, ou même les forces externes agissant sur le propulseur. Je décide d'utiliser du contrôle prédictif (Model Predictive Control). Il s'agit de prédire, selon un modèle mathématique du système, son état futur après une suite de commandes. On peut ainsi choisir parmis les commandes, celle qui nous convient (le moins d'erreur).</p>
-            <p>Or pour trouver cette solution optimale, une descente de gradient ne suffit pas : l'espace n'a aucune garantie d'être convexe. Je m'appuie donc sur le papier de recherche <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">Lossless Convexification de Lars Blackmore</a>. Cet algorithme apporte un espace analogue au premier, qui lui est convexe, et où la solution optimale de l'un est la solution optimale de l'autre, si elle existe.</p>
-            <p>Cette partie est encore sujet de réflexions.</p>
+            <p>I started a flight controller with PIDs in my simulation to keep the booster upright, but when starting to go beyond (changing target altitudes), it became unadapted (as controlled engines and earth acceleration are not linear) and needed to seek better control systems. And my research landed on <a href="https://en.wikipedia.org/wiki/Model_predictive_control" target="_blank">Model Predictive Control (MPC)</a>, the idea is that from a mathematical model of the booster, and a model of how I can control it, it gives me a cost function to optimize, and the optimal solution is my optimal control.<br />
+                However, this cost function has no reason to be convex, so optimization is an issue. But this issue is fixed by looking into the real-world rocket landing algorithms ! I found out about <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">Lossless Convexification</a>, this is the idea of making systems based on soft landing get a different analogue cost function, that is proven convex, and thus that if a solution exists, a gradient descent is "enough". And this algorithm is one that is used by Falcon 9 rockets (within the G-FOLD algorithm), and likely Starship upper stage too as <a href="http://www.larsblackmore.com" target="_blank">Lars Blackmore</a>, one of the papers' author, is currently a Sr. Mars Landing Engineer at SpaceX. I should start really getting into this research paper around early october.<br />
+                The goal is to make a system that works, not a system that has unexplored potential. Taking the "hard path" is then, my only option.
+            </p>
 
             <br />
             <hr>
@@ -651,8 +658,8 @@
                     - The middle part, holding all the logic boards<br />
                     - The lower part, where is situated the battery<br />
                     <br />
-                    Everything locks itself with a few printed hooks and screws, as the previous version was getting loose with all the acrobatics done on the FANUC. <br />
-                    The middle parts have the attach point for the FANUC, as it is the nearest to the gravity/pressure center of the real booster. <br />
+                    Everything locks itself with a few custom plastic hooks, as the previous version was getting loose with all the acrobatics done on the FANUC.<br />
+                    The middle parts have the attach point for the FANUC, as it is the nearest to the gravity/pressure center of the real booster, easing the FANUC's work.<br />
                     All communications to/from the mockups are wireless.
                 </p>
             </div>
@@ -662,7 +669,7 @@
             <h2>Optimal Control</h2>
 
             <p>Usual easy controllers are not enough for my flight computer : They assume many things that do not apply here. So I need to pivot to a new control approach : prediction. Given the mathematical model of my booster and tower, I can predict how it will turn/fall naturally, and deduce the optimal actuations (optimal control) with the "same" model.<br />
-                However, finding the "optimal" solution is not trivial, and thus I need to apply to my project an algorithm far beyond my studies, <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">a research paper about how to make non-trivial optimization problems become trivial (by Lars Blackmore and Behçet Açikmese)</a><br />
+                However, finding the "optimal" solution is not trivial, and thus I need to apply to my project an algorithm far beyond my studies, <a href="http://www.larsblackmore.com/losslessconvexification.htm" target="_blank">a research paper about how to make my non-trivial optimization problems become trivial (by Lars Blackmore and Behçet Açikmese)</a><br />
                 This is not part of the "proof-of-concept" that I've developed, but it's a need to make it all work. I should be starting to work on this is a few weeks.
             </p>
 
