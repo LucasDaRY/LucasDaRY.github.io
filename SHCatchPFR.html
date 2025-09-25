@@ -127,7 +127,7 @@
 
             <p>
                 Un projet d'étude est aussi une excuse pour apprendre en pratiquant. Voulant participer aux Olympiades FANUC cette année, j'ai demandé dès la proposition de mon projet d'utiliser un bras FANUC. Pour l'échelle de mon projet, le plus gros robot disponible à l'école m'a été accordé : un <code>M-10iA</code> avec un <code>R-30iA Mate</code>.<br />
-                L'objectif avec cette cellule robotisée est de recréer le plus fidèlement possible, <u>en flux tendu</u>, l'état de mon environnement de simulation. Une grande précision est nécéssaire pour ne pas fausser la lecture des centrales inertielles sur les maquettes.
+                L'objectif avec cette cellule robotisée est de recréer le plus fidèlement possible, <u>en flux tendu</u>, l'état de mon environnement de simulation. Une grande précision est nécessaire pour ne pas fausser la lecture des centrales inertielles sur les maquettes.
             </p>
             <div class="split">
                 <p>
@@ -281,7 +281,7 @@
                 <p>
                     Je peux donner au robot la position et la vitesse du propulseur à intervalles régulière.<br />
                     Un début fût d'utiliser la librairie <a href="https://github.com/torayeff/fanucpy" target="_blank">Fanucpy de Agajan Torayev</a>, et le tout fonctionnait très bien après adaptation pour mon robot spécifiquement. Mais le mouvement était saccadé. Evidemment, un objet tombant du ciel ne prend pas de pause...
-                    J'ai donc modifié la librarie spécifiquement pour mon utilisation.<br />
+                    J'ai donc modifié la librarie spécifiquement pour mon utilisation pour obtenir un mouvement fluide (qui sera bientôt publiée open-source).<br />
                     Résultats ? Le robot <u>reproduit à l'identique</u> ma simulation.<br />
                     La vidéo présente le robot, recevant des points aléatoires, avec des instructions de vitesses aléatoires. Il s'arrête s'il a atteint sa dernière cible, et les mouvements sont parfois saccadés à cause d'un petit problème de calcul, réglé sur papier.
                 </p>
@@ -396,7 +396,7 @@
             <div class="split">
                 <p>
                     The objective is to reproduce the <u>return of the Super Heavy rocket booster back to its launch site</u>.
-                    Keeping this in a simulation (while Robotics are for real-world applications) is both a bummer for an academic project (limiting myself this close) and a bummer to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
+                    Keeping this in a simulation (while Robotics are for real-world applications) would be both a shame for an academic project (limiting myself this close) and a shame to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
                     And then going even further by making this a <u>"hardware-in-the-loop" simulation</u>, the goal is to use real sensors and actuators for the simulation : making the mockup believe it is really flying. These type of simulation are widely used in aerospace industries, offering me experience and validating my solutions' robustness in limited real world scenarios (I'm not working on a real subscaled rocket with propulsion).
                     <br /><br />
                     During its return, the booster : <br />
@@ -519,7 +519,7 @@
                     - The middle part, holding the breadboard and the two aligned accelerometers<br />
                     - The lower part, where is situated the battery<br />
                     <br />
-                    Everything locks itself with custom "twist hooks" with stable positions, as the previous version titghened with screws was getting loose with all the acrobatics done on the FANUC. It is not yet prited, but this locking mechanism is promissing, with multiple redundency points according to the pieces masses, and tolerences playing in favor of the locking.<br />
+                    Everything locks itself with custom "twist hooks" with stable positions, as the previous version tightened with screws was getting loose with all the acrobatics done on the FANUC. It is not yet prited, but this locking mechanism is promissing, with multiple redundency points according to the pieces masses, and tolerences playing in favor of the locking.<br />
                     The middle parts have the attach point for the FANUC, as it is the nearest to the gravity/pressure center of the real booster, but the bottom bettery part is by far the heaviest. <br />
                     All communications to/from the mockups are wireless, via WiFi.
                 </p>
@@ -548,7 +548,7 @@
             <div class="split">
                 <p>
                     The objective is to reproduce the <u>return of the Super Heavy rocket booster back to its launch site</u>.
-                    Keeping this in a simulation (while Robotics are for real-world applications) is both a bummer for an academic project (limiting myself this close) and a bummer to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
+                    Keeping this in a simulation (while Robotics are for real-world applications) would be both a shame for an academic project (limiting myself this close) and a shame to explain it to a broader audience seeking physical interactions instead of virtual cylinders moving. This make a reason to reproduce this maneuver in a smaller scale robotic cell. (Another reason being to work with a FANUC assembler before going into FANUC competitions).
                     And then going even further by making this a <u>"hardware-in-the-loop" simulation</u>, widely used in aerospace industries, offering me experience and validating my solutions' robustness in limited real world scenarios.
                     <br /><br />
                     During its return, the booster : <br />
@@ -598,12 +598,12 @@
             <h2>Robotic cell control</h2>
 
             <div class="split">
-                <p>My future job will most likely be in manufacturing, so I need experience with real industrial machines, and my school has quite a few. I was given the green light to use the biggest of the school : the FANUC M-10iA-12S with a R-30iA Mate controller.<br />
+                <p>My future job will most likely be in manufacturing, so I need experience with real industrial machines, and my school has quite a few. I was given the green light to use the biggest of the school : a FANUC M-10iA with a R-30iA Mate controller.<br />
                     The goal of the FANUC is to perfectly mimic in real time, a smooth movement that happens into my simulation. It needs precision & reactivity as deviations might pile up into my sensors readings, making them useless.<br />
                     <br />
                     The only data I have for it are position and speed of the booster at 50Hz.<br />
                     I started using the <a href="https://github.com/torayeff/fanucpy" target="_blank">Fanucpy library from Agajan Torayev</a> (KAREL programs), allowing remote commands on the robot by the network, and it worked great after adapting it to my controller. But continuous movement were not possible as it would stop at every point. A rocket booster falling off the sky do not take any coffee break...
-                    So I edited his library to make my use case work, and will be shared online as open-source in the near future.<br />
+                    So I edited his library to make my use case work, a custom smooth real-time movement program, and will be shared online as open-source in the near future.<br />
                     This chapter ends with my robotic arm <u>recreating the trajectories</u> of my simulation.<br />
                     This video shows the robot running my spline program to reach random points of a plane, at various speeds. It stops when it reached its target, and redirects into a curve if a new target in sent before reaching the previous one.
                     The sometimes blocky movements are from a known issue, with a known solution, currently being fixed.
